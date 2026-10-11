@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Protocole — Les cinq épreuves</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+:root{color-scheme:dark;--bg:#080b12;--panel:#111827;--panel2:#172132;--line:#29364b;--txt:#e8edf6;--muted:#8b9db4;--accent:#83f5c0;--red:#ff6f83;--gold:#fbd28c}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#1b3040 0%,transparent 40%),var(--bg);font-family:'Space Grotesk',sans-serif;color:var(--txt);min-height:100vh}body:before{content:"";position:fixed;inset:0;opacity:.11;pointer-events:none;background-image:linear-gradient(#4a647a 1px,transparent 1px),linear-gradient(90deg,#4a647a 1px,transparent 1px);background-size:48px 48px}.shell{max-width:1110px;margin:0 auto;padding:38px 20px 65px;position:relative}.eyebrow{font:600 12px 'IBM Plex Mono';color:var(--accent);letter-spacing:3px}.hero{padding:40px 0 28px}.hero h1{font-size:clamp(43px,7vw,80px);letter-spacing:-3px;line-height:1;margin:13px 0}.hero h1 span{color:var(--accent)}.hero p{color:var(--muted);max-width:650px;line-height:1.65}.progress-row{display:flex;align-items:center;gap:17px;font:12px 'IBM Plex Mono';color:var(--muted);margin:25px 0 10px}.progress{flex:1;border:1px solid var(--line);height:11px;border-radius:15px;overflow:hidden;background:#0e1520}.progress>div{height:100%;width:0;background:var(--accent);transition:width .35s}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:23px;margin-top:20px}.nav,.stage,.finish{border:1px solid var(--line);background:linear-gradient(155deg,rgba(23,33,50,.96),rgba(14,20,31,.97));border-radius:15px}.nav{padding:18px;height:max-content}.nav h3{margin:4px 7px 16px;font-size:12px;letter-spacing:2px;color:var(--muted);font-family:'IBM Plex Mono'}.nav button{cursor:pointer;background:transparent;border:1px solid transparent;color:#b6c6d9;text-align:left;display:flex;align-items:center;gap:11px;width:100%;padding:15px 11px;border-radius:10px;font:500 13px 'Space Grotesk';margin-bottom:5px}.nav button.active{background:#203245;border-color:#36546a;color:#fff}.nav button:hover{background:#223247}.nav .number{font:600 12px 'IBM Plex Mono';color:var(--accent);width:25px}.nav .tick{margin-left:auto;color:var(--accent)}.stage{min-height:570px;padding:clamp(19px,4vw,38px)}.stage-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.tag{border:1px solid #36546a;padding:7px 10px;color:var(--accent);border-radius:5px;font:11px 'IBM Plex Mono';letter-spacing:1px}.status{font:11px 'IBM Plex Mono';color:var(--muted)}h2{font-size:clamp(25px,3vw,35px);letter-spacing:-1px;margin:22px 0 9px}.desc{color:var(--muted);line-height:1.6;margin:0 0 24px}button,input{font:inherit}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.btn{padding:12px 18px;border-radius:8px;border:1px solid #3e6b63;background:#204b43;color:#d7ffee;cursor:pointer;font-weight:700}.btn:hover{background:#2b6556}.btn.secondary{background:#202c3c;color:#c8d7eb;border-color:#40516a}.btn:disabled{opacity:.5;cursor:default}.tools{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:16px 0}.info{font:12px 'IBM Plex Mono';color:var(--gold)}.notice{margin-top:21px;min-height:25px;font:13px 'IBM Plex Mono';color:var(--muted);line-height:1.6}.notice.good{color:var(--accent)}.notice.bad{color:var(--red)}.mine-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;max-width:660px}.cell{aspect-ratio:1;border:1px solid #455269;border-radius:5px;background:#293b4d;color:#f0f5fa;font:700 clamp(10px,1.4vw,17px) 'IBM Plex Mono';cursor:pointer;min-width:0}.cell{touch-action:manipulation}.cell:hover:not(:disabled){background:#3a5267}.cell.revealed{background:#101a27;border-color:#273c4b;cursor:default}.cell.flag{color:var(--gold)}.cell.bomb{background:#693242;color:#fff}.quiz-questions{display:grid;gap:14px}.q{padding:17px;border:1px solid var(--line);border-radius:11px;background:#101a27}.q-title{font-size:14px;font-weight:700;margin-bottom:12px}.q-options{display:grid;grid-template-columns:1fr 1fr;gap:7px}.option{border:1px solid #34445b;border-radius:7px;background:#1e2938;color:#c5d3e5;padding:10px;text-align:left;cursor:pointer;font-size:13px}.option.selected{border-color:var(--accent);color:var(--accent);background:#1c3a37}.memory{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;max-width:460px}.memory button{height:79px;font-size:27px;border-radius:9px;border:1px solid #40516a;background:#243247;color:var(--accent);cursor:pointer}.memory button.open,.memory button.matched{background:#183f3a;border-color:#4ba58b}.memory button.matched{opacity:.63;cursor:default}.code-entry{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.code-entry input{background:#0e1826;border:1px solid #41536b;color:white;padding:13px;border-radius:8px;width:175px;letter-spacing:5px;font-family:'IBM Plex Mono';font-size:23px}.clues{display:grid;gap:10px;margin-bottom:25px}.clue{padding:12px 15px;background:#101b28;border:1px solid #2a3e53;border-radius:8px;font-family:'IBM Plex Mono';font-size:13px;line-height:1.6}.clue b{color:var(--gold);letter-spacing:3px}.sequence{display:flex;gap:12px;flex-wrap:wrap;margin:23px 0}.seq-tile{height:72px;min-width:69px;border:1px solid #40546a;background:#223349;border-radius:10px;font-size:28px;color:#fff;cursor:pointer}.seq-tile:disabled{cursor:default;opacity:.4}.seq-input{display:flex;gap:9px;min-height:55px}.seq-picked{padding:15px 18px;border:1px solid #4b8c79;color:var(--accent);border-radius:8px;font-size:20px}.finish{padding:30px;margin-top:25px;text-align:center}.finish h2{margin:10px}.finish p{color:var(--muted)}.final-link{margin:12px 0;background:#275849;display:inline-block;color:white;text-decoration:none;padding:15px 25px;border-radius:8px;font-weight:700}.hidden{display:none!important}.gate{position:fixed;inset:0;z-index:100;background:rgba(4,8,16,.97);display:flex;align-items:center;justify-content:center;padding:20px}.gate-card{width:min(100%,510px);border:1px solid #36546a;border-radius:16px;background:#101c2b;padding:clamp(24px,5vw,40px);box-shadow:0 25px 90px #0009;text-align:center}.gate-card h2{margin:15px 0}.gate-card p{color:var(--muted);line-height:1.7}.gate-card .timer{font:700 clamp(35px,8vw,65px) 'IBM Plex Mono';letter-spacing:3px;color:var(--gold);margin:14px 0}.gate-card input{width:100%;background:#09121e;color:white;border:1px solid #40516a;border-radius:8px;padding:13px}.gate-card .btn{margin:9px 3px}.admin-row{border-top:1px solid #34435a;padding-top:18px;margin-top:25px}.admin-msg{min-height:20px;color:var(--red);font:12px 'IBM Plex Mono'}.footer{font:11px 'IBM Plex Mono';color:#61778d;margin-top:35px;text-align:center}.kbd{color:var(--accent)}@media(max-width:720px){.layout{grid-template-columns:1fr}.nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.nav h3{grid-column:1/-1}.nav button{font-size:12px;padding:12px 6px}.stage{min-height:450px}.q-options{grid-template-columns:1fr}.memory button{height:65px}.hero{padding-top:15px}}
+.hangman-wrap{display:flex;align-items:center;gap:30px;flex-wrap:wrap;margin:25px 0}.hangman-wrap svg{width:180px;max-width:100%;height:205px;background:#101a27;border:1px solid #29364b;border-radius:12px;padding:8px}.hangman-content{flex:1;min-width:230px}.hangman-word{display:flex;gap:5px;flex-wrap:wrap;margin:26px 0}.hangman-letter{width:30px;height:42px;border-bottom:3px solid #83f5c0;text-align:center;display:inline-flex;justify-content:center;align-items:center;font:bold 23px 'IBM Plex Mono'}.hangman-keys{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:5px}.hangman-key{min-width:0;padding:10px 0;border:1px solid #455269;background:#223349;color:#fff;border-radius:5px;cursor:pointer;font:600 13px 'IBM Plex Mono'}.hangman-key:disabled{opacity:.42;cursor:default}.hangman-key.hit{color:#83f5c0}.hangman-key.miss{color:#ff8698}@media(max-width:500px){.hangman-keys{grid-template-columns:repeat(7,minmax(0,1fr))}.hangman-letter{width:24px;font-size:18px}.hangman-wrap{gap:12px}}
+</style>
+</head>
+<body><div class="gate" id="accessGate"><section class="gate-card"><div class="eyebrow">// TERMINAL SOUS SURVEILLANCE</div><h2 id="gateTitle">Accès au protocole</h2><p id="gateText">Une seule tentative à la fois. Après une tentative interrompue ou échouée, l'accès est verrouillé pendant dix minutes.</p><div id="gateTimer" class="timer hidden">10:00</div><button id="beginAttempt" class="btn">COMMENCER L'ENQUÊTE</button><div class="admin-row"><p>Accès administrateur</p><input id="adminKeyInput" type="password" placeholder="Clé administrateur" autocomplete="off" aria-label="Clé administrateur"><button id="adminUnlock" class="btn secondary">DÉVERROUILLER / RÉINITIALISER</button><div id="adminMessage" class="admin-msg" role="status"></div></div></section></div><main class="shell"><div class="eyebrow">// ACCÈS RESTREINT · DOSSIER 001</div><header class="hero"><h1>LE <span>PROTOCOLE</span></h1><p>Un fichier vidéo a été dissimulé. Pour récupérer son accès, vous devrez réussir cinq épreuves. Chaque réussite rapproche de la vérité. Bonne chance.</p><div class="progress-row"><span>PROGRESSION</span><div class="progress"><div id="progressBar"></div></div><strong id="progressLabel">0 / 5</strong></div></header><section class="layout"><nav class="nav" id="nav"><h3>LES CINQ ÉPREUVES</h3></nav><section class="stage"><div class="stage-head"><span class="tag" id="tag">ÉPREUVE 01</span><span class="status" id="status">EN ATTENTE</span></div><h2 id="stageTitle"></h2><p id="stageDesc" class="desc"></p><div id="game"></div><div id="message" class="notice" role="status" aria-live="polite"></div></section></section><section id="finish" class="finish hidden"><div class="eyebrow">// DOSSIER DÉVERROUILLÉ</div><h2>Vous avez trouvé la vérité.</h2><p>Les cinq épreuves ont été réussies. Le fichier vidéo est maintenant accessible.</p><a class="final-link" id="videoLink" target="_blank" rel="noopener noreferrer">▶ OUVRIR LA VIDÉO YOUTUBE</a><p style="font-size:12px">L'accès reste également disponible sur cet appareil.</p></section><footer class="footer">LE PROTOCOLE — TERMINAL D'INVESTIGATION // 2026</footer></main>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script>
+'use strict';
+// ===== PERSONNALISATION =====
+const CONFIG = {
+  youtubeUrl: 'https://youtu.be/U5LT-XpWVqY', // Vidéo finale
+  // L'administration passe par Firebase Authentication, aucun mot de passe dans le HTML
+  cooldownMinutes: 10,
+  questions: [
+    {q:'Une horloge sonne 6 coups en 5 secondes, du premier au dernier. Combien de secondes pour 12 coups ?',options:['10 secondes','11 secondes','12 secondes','15 secondes'],answer:1},
+    {q:'Complétez la suite : 1, 2, 6, 24, 120, ...',options:['240','600','720','840'],answer:2},
+    {q:'Dans une pièce se trouvent deux pères et deux fils. Pourtant, il n’y a que trois personnes. Comment est-ce possible ?',options:['Un père, son fils et son petit-fils','Deux jumeaux et un père','Un père et deux fils sans lien','Ils sont quatre'],answer:0},
+    {q:'J’ai deux fois l’âge que tu avais quand j’avais ton âge. Ensemble, nous avons 63 ans. Quel âge ai-je ?',options:['28 ans','35 ans','36 ans','42 ans'],answer:2},
+    {q:'Trois boîtes sont étiquetées POMMES, POIRES et MÉLANGE. Toutes les étiquettes sont fausses. Dans quelle boîte prendre un seul fruit pour tout retrouver ?',options:['POMMES','POIRES','MÉLANGE','N’importe laquelle'],answer:2}
+  ],
+  // Le cadenas demande un code à 3 chiffres déductible des indices affichés.
+  lockCode: '042'
+};
+const names=['Le champ de mines','L’interrogatoire','Le mot interdit','Le cadenas','Le message chiffré'];
+const descriptions=[
+ 'Un terrain de 12 × 12 cases contient 22 mines. Révélez toutes les cases sûres. Clic droit (ou mode drapeau sur mobile) pour marquer les dangers.',
+ 'Répondez correctement aux cinq questions. Vous pouvez corriger vos réponses avant de valider.',
+ 'Un mot désigne le mal qui ronge les institutions. Devinez-le lettre par lettre avant la septième erreur.',
+ 'Un verrou protège le dossier. Déduisez le code à trois chiffres à l’aide des indices.',
+ 'Interceptez une transmission encodée. Déchiffrez-la pour récupérer la phrase secrète : le code utilise un décalage alphabétique.'
+];
+const done = [false,false,false,false,false];
+while(done.length<5)done.push(false);
+let current=0,mineState=null, quizAnswers={}, hangmanState=null;
+const $=id=>document.getElementById(id);
+function persist(){scheduleBroadcast();}
+function notice(msg,kind=''){const el=$('message');el.textContent=msg;el.className='notice '+kind;}
+function complete(i){if(!accessGranted||done[i])return;done[i]=true;persist();renderNav();renderProgress();$('status').textContent='VALIDÉ ✓';notice('Épreuve réussie ! Sélectionnez une autre épreuve.','good');if(done.every(Boolean)){ $('finish').classList.remove('hidden');finishSession(); }scheduleBroadcast();}
+function renderProgress(){const n=done.filter(Boolean).length;$('progressLabel').textContent=n+' / 5';$('progressBar').style.width=(n/5*100)+'%';$('finish').classList.toggle('hidden',n!==5);$('videoLink').href=CONFIG.youtubeUrl;}
+function renderNav(){const nav=$('nav');nav.innerHTML='<h3>LES CINQ ÉPREUVES</h3>';names.forEach((name,i)=>{const b=document.createElement('button');b.className=current===i?'active':'';b.innerHTML='<span class="number">0'+(i+1)+'</span><span>'+name+'</span>'+(done[i]?'<span class="tick">✓</span>':'');b.onclick=()=>show(i);nav.appendChild(b);});}
+function show(i){if(!accessGranted)return;current=i;renderNav();$('tag').textContent='ÉPREUVE 0'+(i+1);$('status').textContent=done[i]?'VALIDÉ ✓':'EN ATTENTE';$('stageTitle').textContent=names[i];$('stageDesc').textContent=descriptions[i];$('game').replaceChildren();notice('');[renderMine,renderQuiz,renderHangman,renderLock,renderCipher][i]();if(done[i])notice('Épreuve déjà validée. Vous pouvez rejouer si vous le souhaitez.','good');}
+function mkButton(text,cls,handler){const b=document.createElement('button');b.className=cls;b.textContent=text;b.onclick=handler;return b;}
+// JEU 1 : DÉMINEUR 12x12 — 22 mines, premier clic garanti sûr
+function initMines(){mineState={mines:new Set(),revealed:new Set(),flags:new Set(),started:false,dead:false,flagMode:false};}
+function adjacent(i){const x=i%12,y=Math.floor(i/12),arr=[];for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=x+dx,ny=y+dy;if((dx||dy)&&nx>=0&&nx<12&&ny>=0&&ny<12)arr.push(ny*12+nx);}return arr;}
+function seedMines(first){let places=Array.from({length:144},(_,i)=>i).filter(i=>i!==first&&!adjacent(first).includes(i));for(let i=places.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[places[i],places[j]]=[places[j],places[i]];}mineState.mines=new Set(places.slice(0,22));mineState.started=true;}
+function revealMine(i){const s=mineState;if(s.dead||s.flags.has(i)||s.revealed.has(i))return;if(!s.started)seedMines(i);if(s.mines.has(i)){s.dead=true;s.mines.forEach(k=>s.revealed.add(k));drawMine();notice('Boum ! Une mine a explosé. Tentative terminée.','bad');setTimeout(()=>endAttempt(),1100);return;}let queue=[i];while(queue.length){const n=queue.pop();if(s.revealed.has(n)||s.flags.has(n))continue;s.revealed.add(n);const count=adjacent(n).filter(v=>s.mines.has(v)).length;if(count===0)queue.push(...adjacent(n).filter(v=>!s.revealed.has(v)));}drawMine();if(s.revealed.size===122)complete(0);}
+function toggleFlag(i){const s=mineState;if(s.dead||s.revealed.has(i))return;if(s.flags.has(i))s.flags.delete(i);else if(s.flags.size<22)s.flags.add(i);drawMine();}
+function drawMine(){const s=mineState;const g=$('mineGrid');g.replaceChildren();for(let i=0;i<144;i++){const b=document.createElement('button');b.className='cell';const revealed=s.revealed.has(i);if(revealed){b.classList.add('revealed');if(s.mines.has(i)){b.classList.add('bomb');b.textContent='✹';}else{const count=adjacent(i).filter(v=>s.mines.has(v)).length;b.textContent=count||'';b.style.color=['','#82cbff','#83f5c0','#ff8798','#d8aaff','#fbd28c'][Math.min(count,5)];}}else if(s.flags.has(i)){b.textContent='⚑';b.classList.add('flag');}b.disabled=s.dead||revealed;b.setAttribute('aria-label','Case '+(i+1));b.onclick=()=>s.flagMode?toggleFlag(i):revealMine(i);b.oncontextmenu=e=>{e.preventDefault();toggleFlag(i);};g.appendChild(b);}$('mineCount').textContent='DRAPEAUX '+s.flags.size+' / 22';$('flagToggle').textContent=s.flagMode?'Mode : drapeau ⚑':'Mode : révéler ◻';}
+function renderMine(){initMines();const game=$('game');const tools=document.createElement('div');tools.className='tools';tools.innerHTML='<span id="mineCount" class="info"></span>';const flag=mkButton('Mode : révéler ◻','btn secondary',()=>{mineState.flagMode=!mineState.flagMode;drawMine();});flag.id='flagToggle';tools.appendChild(flag);tools.appendChild(mkButton('Recommencer','btn secondary',()=>{initMines();drawMine();notice('Nouvelle grille prête.');}));game.appendChild(tools);const grid=document.createElement('div');grid.className='mine-grid';grid.id='mineGrid';game.appendChild(grid);drawMine();}
+// JEU 2 : CINQ QUESTIONS
+function renderQuiz(){quizAnswers={};const game=$('game');const wrap=document.createElement('div');wrap.className='quiz-questions';CONFIG.questions.forEach((q,i)=>{const box=document.createElement('div');box.className='q';const title=document.createElement('div');title.className='q-title';title.textContent=(i+1)+'. '+q.q;box.appendChild(title);const opts=document.createElement('div');opts.className='q-options';q.options.forEach((opt,j)=>{const b=mkButton(opt,'option',()=>{quizAnswers[i]=j;opts.querySelectorAll('button').forEach(el=>el.classList.remove('selected'));b.classList.add('selected');});opts.appendChild(b);});box.appendChild(opts);wrap.appendChild(box);});game.appendChild(wrap);const tools=document.createElement('div');tools.className='tools';tools.appendChild(mkButton('VALIDER LES 5 RÉPONSES','btn',()=>{if(Object.keys(quizAnswers).length!==5)return notice('Répondez aux cinq questions avant de valider.','bad');const wrong=CONFIG.questions.map((q,i)=>q.answer===quizAnswers[i]?null:i+1).filter(Boolean);if(wrong.length)return notice('Réponse(s) à revoir : question(s) '+wrong.join(', ')+'.','bad');complete(1);}));game.appendChild(tools);}
+// JEU 3 : PENDU — mot CORRUPTION
+const HANGMAN_WORD='CORRUPTION';
+const HANGMAN_PARTS=[
+ '<line x1="12" y1="170" x2="128" y2="170"/>',
+ '<line x1="42" y1="170" x2="42" y2="14"/>',
+ '<line x1="42" y1="14" x2="110" y2="14"/>',
+ '<line x1="110" y1="14" x2="110" y2="38"/>',
+ '<circle cx="110" cy="55" r="17"/>',
+ '<line x1="110" y1="72" x2="110" y2="115"/>',
+ '<line x1="110" y1="84" x2="85" y2="104"/><line x1="110" y1="84" x2="135" y2="104"/>',
+ '<line x1="110" y1="115" x2="90" y2="145"/><line x1="110" y1="115" x2="130" y2="145"/>'
+];
+function renderHangman(){hangmanState={guessed:new Set(),errors:0,over:false};const game=$('game');game.innerHTML='<div class="hangman-wrap"><svg id="hangmanDrawing" viewBox="0 0 165 185" role="img" aria-label="Dessin du pendu"></svg><div class="hangman-content"><div class="info" id="hangmanInfo"></div><div id="hangmanWord" class="hangman-word" aria-label="Mot à deviner"></div><div id="hangmanKeys" class="hangman-keys"></div></div></div>';const tools=document.createElement('div');tools.className='tools';tools.appendChild(mkButton('RECOMMENCER','btn secondary',renderHangman));game.appendChild(tools);drawHangman();}
+function drawHangman(){const s=hangmanState;const svg=$('hangmanDrawing');svg.innerHTML='<g fill="none" stroke="#ff8698" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">'+HANGMAN_PARTS.slice(0,s.errors+1).join('')+'</g>';const w=$('hangmanWord');w.replaceChildren();for(const letter of HANGMAN_WORD){const d=document.createElement('span');d.className='hangman-letter';d.textContent=s.guessed.has(letter)||s.over&&s.errors>=7?letter:' ';w.appendChild(d);}const keys=$('hangmanKeys');keys.replaceChildren();for(const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'){const b=mkButton(letter,'hangman-key',()=>guessHangman(letter));b.disabled=s.guessed.has(letter)||s.over;if(s.guessed.has(letter))b.classList.add(HANGMAN_WORD.includes(letter)?'hit':'miss');keys.appendChild(b);}const remaining=7-s.errors;$('hangmanInfo').textContent='ERREURS : '+s.errors+' / 7  ·  ESSAIS RESTANTS : '+remaining;}
+function guessHangman(letter){const s=hangmanState;if(s.over||s.guessed.has(letter))return;s.guessed.add(letter);if(!HANGMAN_WORD.includes(letter))s.errors++;if([...new Set(HANGMAN_WORD)].every(c=>s.guessed.has(c))){s.over=true;drawHangman();complete(2);return;}if(s.errors>=7){s.over=true;drawHangman();notice('Échec : le mot était CORRUPTION. Tentative terminée.','bad');setTimeout(()=>endAttempt(),1100);return;}drawHangman();notice(HANGMAN_WORD.includes(letter)?'Lettre correcte.':'Lettre absente du mot.',HANGMAN_WORD.includes(letter)?'good':'bad');}
+// JEU 4 : CODE LOGIQUE (3 CHIFFRES)
+function renderLock(){const game=$('game');const clues=document.createElement('div');clues.className='clues';['<b>682</b> — Un chiffre est correct et bien placé.','<b>614</b> — Un chiffre est correct mais mal placé.','<b>206</b> — Deux chiffres sont corrects mais mal placés.','<b>738</b> — Aucun chiffre n’est correct.','<b>780</b> — Un chiffre est correct mais mal placé.'].forEach(line=>{const d=document.createElement('div');d.className='clue';d.innerHTML=line;clues.appendChild(d);});game.appendChild(clues);const row=document.createElement('div');row.className='code-entry';const inp=document.createElement('input');inp.maxLength=3;inp.placeholder='•••';inp.inputMode='numeric';inp.setAttribute('aria-label','Code à trois chiffres');inp.oninput=()=>inp.value=inp.value.replace(/\D/g,'');row.appendChild(inp);row.appendChild(mkButton('DÉVERROUILLER','btn',()=>{if(inp.value===CONFIG.lockCode)complete(3);else notice('Code incorrect. Analysez à nouveau les indices.','bad');}));game.appendChild(row);}
+// JEU 5 : CRYPTOGRAMME — chiffrement de César, décalage de 3
+function renderCipher(){
+ const game=$('game');
+ const block=document.createElement('div');block.className='clues';
+ block.innerHTML='<div class="clue"><span style="color:#8b9db4">TRANSMISSION INTERCEPTÉE</span><div style="font-size:clamp(18px,3vw,29px);color:#83f5c0;letter-spacing:2px;margin-top:12px;overflow-wrap:anywhere">OH GRVVLHU HVW RXYHUW</div></div><div class="clue">Indice 01 — Chaque lettre a été décalée du même nombre de places dans l’alphabet.</div><div class="clue">Indice 02 — Le décalage vaut le nombre de côtés d’un triangle.</div><div class="clue">Indice 03 — Les espaces n’ont pas été modifiés.</div>';
+ game.appendChild(block);
+ const row=document.createElement('div');row.className='code-entry';
+ const inp=document.createElement('input');inp.style.width='min(100%,430px)';inp.style.letterSpacing='1px';inp.style.fontSize='16px';inp.placeholder='Entrez le message déchiffré';inp.setAttribute('aria-label','Message déchiffré');
+ row.append(inp,mkButton('DÉCODER','btn',()=>{const answer=inp.value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z]/g,'');if(answer==='LEDOSSIERESTOUVERT')complete(4);else notice('Transmission incorrecte. Vérifiez le sens du décalage.','bad');}));game.appendChild(row);
+}
+// Verrouillage local : une tentative en cours par onglet et un délai de 10 minutes
+// ===== MULTIJOUEUR — FIREBASE REALTIME DATABASE =====
+// Remplacer les valeurs ci-dessous par les paramètres de VOTRE projet Firebase.
+const firebaseConfig = {
+ apiKey: 'AIzaSyChVKywrZNmJdByJlAMSrlZob8OyegZgpo',
+ authDomain: 'enigme-unbound.firebaseapp.com',
+ databaseURL: 'https://enigme-unbound-default-rtdb.europe-west1.firebasedatabase.app',
+ projectId: 'enigme-unbound',
+ storageBucket: 'enigme-unbound.firebasestorage.app',
+ messagingSenderId: '63577456323',
+ appId: '1:63577456323:web:dcf5d48648abb58b396c76',
+ measurementId: 'G-YEZF18RC6C'
+};
+const SETUP_REQUIRED = !firebaseConfig.databaseURL || firebaseConfig.databaseURL.includes('REMPLACER_');
+let accessGranted=false, user=null, shared=null, sessionRef=null, db=null;
+let broadcastHandle=null, lastSent='', adminOverlayOpen=false;
+const duration=CONFIG.cooldownMinutes*60000;
+const gate=$('accessGate');
+const outer=document.createElement('section');outer.className='gate-card live-gate';
+outer.innerHTML=`<div class="eyebrow">// DOSSIER PARTAGÉ · TEMPS RÉEL</div>
+<h2 id="liveTitle">Connexion au protocole</h2><p id="liveDescription">Initialisation…</p>
+<div id="liveCount" class="timer hidden">10:00</div>
+<div id="liveActions"><button class="btn hidden" id="liveStart">COMMENCER L'ENQUÊTE</button><span id="liveStatus" class="admin-msg"></span></div>
+<div class="admin-row"><p>Administration sécurisée</p><input id="liveEmail" type="email" placeholder="Adresse e-mail administrateur" autocomplete="username"/><input id="livePassword" type="password" placeholder="Mot de passe Firebase" autocomplete="current-password" style="margin-top:8px"/><button id="liveLogin" class="btn secondary">CONNEXION ADMIN</button><button id="liveReset" class="btn secondary hidden">RÉINITIALISER LA PARTIE</button><div class="admin-msg" id="liveAdminError"></div></div>`;
+gate.replaceChildren(outer);
+const spectator=document.createElement('div');spectator.id='spectator';spectator.className='hidden';spectator.innerHTML='<div class="watch-head"><strong>● DIRECT — MODE SPECTATEUR</strong><span id="watchInfo">Connexion…</span><button id="watchAdmin" class="btn secondary">Administration</button></div><iframe id="spectatorFrame" title="Partie en direct" sandbox="" referrerpolicy="no-referrer"></iframe>';
+document.body.appendChild(spectator);
+const stylesheet=document.querySelector('style').textContent;
+let viewerHTML='';
+function showMessage(message){$('liveStatus').textContent=message;}
+function formatClock(ms){const s=Math.ceil(Math.max(0,ms)/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function snapshotHTML(){
+ const clone=document.querySelector('.shell').cloneNode(true);
+ const originalInputs=document.querySelectorAll('.shell input');
+ const clonedInputs=clone.querySelectorAll('input');
+ originalInputs.forEach((input,i)=>{clonedInputs[i].setAttribute('value',input.value);});
+ clone.querySelectorAll('button').forEach(b=>{b.setAttribute('disabled','');b.style.cursor='default'});
+ clone.querySelectorAll('a').forEach(a=>{a.removeAttribute('href');a.removeAttribute('target');});
+ return clone.outerHTML;
+}
+function scheduleBroadcast(){if(!accessGranted||!sessionRef)return;if(broadcastHandle)return;broadcastHandle=setTimeout(async()=>{
+ broadcastHandle=null;if(!accessGranted)return;
+ const html=snapshotHTML();if(html===lastSent)return;lastSent=html;
+ try {await sessionRef.update({html,stage:current,done:done.slice(),updatedAt:firebase.database.ServerValue.TIMESTAMP});}catch(e){showMessage('Erreur de synchronisation : '+e.message);}
+},400);}
+function applyWatchHtml(html){if(!html||html===viewerHTML)return;viewerHTML=html;
+ const frame=$('spectatorFrame');const doc='<!doctype html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+stylesheet+'\nbody{pointer-events:none;}a{pointer-events:none;}</style></head><body>'+html+'</body></html>';
+ // iframe sandbox sans scripts : impossible pour un spectateur de piloter la partie.
+ frame.srcdoc=doc;
+}
+function renderLive(){
+ if(!user)return;
+ const isOwner=shared&&shared.status==='active'&&shared.ownerUid===user.uid;
+ const isWinner=shared&&shared.status==='completed'&&shared.ownerUid===user.uid;
+ accessGranted=!!isOwner;
+ gate.classList.toggle('hidden',!!isOwner||!!isWinner||(!adminOverlayOpen&&shared?.status==='active'));
+ const state=shared?.status||'ready';
+ const watching=state==='active'&&!isOwner;
+ spectator.classList.toggle('hidden',!watching||adminOverlayOpen);
+ if(watching&&!adminOverlayOpen){gate.classList.add('hidden');$('watchInfo').textContent='Épreuve '+String((shared.stage||0)+1).padStart(2,'0')+' · '+(shared.done||[]).filter(Boolean).length+'/5 validées';applyWatchHtml(shared.html||'');}
+ $('liveCount').classList.add('hidden');$('liveStart').classList.add('hidden');
+ if(state==='active'){
+   $('liveTitle').textContent='ENQUÊTE EN COURS';
+   $('liveDescription').textContent='Un autre joueur dirige actuellement l’enquête. Vous pouvez suivre ses actions en direct.';
+ } else if(state==='cooldown'&&Number(shared.unlockAt)>Date.now()){
+   $('liveTitle').textContent='PROTOCOLE VERROUILLÉ';
+   $('liveDescription').textContent='Une tentative a échoué ou été interrompue. Prochaine tentative dans :';
+   $('liveCount').classList.remove('hidden');$('liveCount').textContent=formatClock(shared.unlockAt-Date.now());
+ } else if(state==='completed'){
+   $('liveTitle').textContent='DOSSIER DÉVERROUILLÉ';
+   $('liveDescription').textContent='L’enquête a été menée à son terme. Un administrateur doit réinitialiser la salle pour recommencer.';
+ } else {
+   $('liveTitle').textContent='ACCÈS AU PROTOCOLE';
+   $('liveDescription').textContent='Une seule personne peut jouer. Les autres suivent en direct. En cas d’échec ou de déconnexion : 10 minutes d’attente.';
+   $('liveStart').classList.remove('hidden');
+ }
+ if(user&&!user.isAnonymous){$('liveReset').classList.remove('hidden');}else{$('liveReset').classList.add('hidden');}
+}
+async function beginSession(){
+ if(!user||!sessionRef)return;
+ $('liveStart').disabled=true;showMessage('Réservation de la session…');
+ try{
+  const transaction=await sessionRef.transaction(old=>{
+    if(old&&old.status==='completed')return;
+    if(old&&old.status==='active')return;
+    if(old&&old.status==='cooldown'&&Number(old.unlockAt)>Date.now())return;
+    return {status:'active',ownerUid:user.uid,startedAt:firebase.database.ServerValue.TIMESTAMP,stage:0,done:[false,false,false,false,false],html:'',updatedAt:firebase.database.ServerValue.TIMESTAMP};
+  },undefined,false);
+  if(!transaction.committed){showMessage('Un autre joueur est déjà entré ou le délai est actif.');return;}
+  // En cas de fermeture de l’onglet ou de rupture réseau : déclencher le cooldown.
+  await sessionRef.onDisconnect().update({status:'cooldown',unlockAt:Date.now()+duration,updatedAt:firebase.database.ServerValue.TIMESTAMP});
+  adminOverlayOpen=false;shared=transaction.snapshot.val();accessGranted=true;
+  done.fill(false);renderProgress();show(0);renderLive();scheduleBroadcast();
+ }catch(err){showMessage('Impossible de démarrer : '+err.message);}finally{$('liveStart').disabled=false;}
+}
+async function endAttempt(){if(!accessGranted||!sessionRef)return;accessGranted=false;
+ try{await sessionRef.update({status:'cooldown',unlockAt:Date.now()+duration,updatedAt:firebase.database.ServerValue.TIMESTAMP});await sessionRef.onDisconnect().cancel();}catch(e){showMessage(e.message);}renderLive();}
+async function finishSession(){if(!accessGranted||!sessionRef)return;
+ try{await sessionRef.update({status:'completed',done:[true,true,true,true,true],stage:current,html:snapshotHTML(),updatedAt:firebase.database.ServerValue.TIMESTAMP});await sessionRef.onDisconnect().cancel();}catch(e){showMessage(e.message);}renderLive();}
+$('liveStart').onclick=beginSession;
+$('watchAdmin').onclick=()=>{adminOverlayOpen=true;spectator.classList.add('hidden');gate.classList.remove('hidden');$('liveTitle').textContent='ACCÈS ADMIN';$('liveDescription').textContent='Connectez-vous avec votre compte Firebase administrateur.';};
+$('liveLogin').onclick=async()=>{if(!window.firebase||!firebase.apps.length)return;
+ try{await firebase.auth().signInWithEmailAndPassword($('liveEmail').value.trim(),$('livePassword').value);$('livePassword').value='';$('liveAdminError').textContent='Connexion établie. Si ce compte dispose des droits, vous pouvez réinitialiser.';}
+ catch(e){$('liveAdminError').textContent='Connexion refusée : '+e.message;}
+};
+$('liveReset').onclick=async()=>{if(!confirm('Réinitialiser la partie pour tous les visiteurs ?'))return;
+ try{await sessionRef.remove();adminOverlayOpen=false;showMessage('Partie réinitialisée.');$('liveAdminError').textContent='Session réinitialisée.';}
+ catch(e){$('liveAdminError').textContent='Accès refusé : '+e.message;}
+};
+const observe=new MutationObserver(scheduleBroadcast);
+observe.observe(document.querySelector('.shell'),{subtree:true,attributes:true,childList:true,characterData:true});
+document.querySelector('.shell').addEventListener('input',scheduleBroadcast,true);
+renderProgress();
+if(SETUP_REQUIRED){$('liveTitle').textContent='CONFIGURATION FIREBASE REQUISE';$('liveDescription').textContent='Ajoutez uniquement databaseURL (l’URL de votre Realtime Database) dans firebaseConfig. Consultez INSTALLATION.md.';}
+else{
+ firebase.initializeApp(firebaseConfig);
+ db=firebase.database();sessionRef=db.ref('session');
+ firebase.auth().onAuthStateChanged(async u=>{
+   if(!u){try{await firebase.auth().signInAnonymously();}catch(e){showMessage('Activer Authentication anonyme dans Firebase : '+e.message);}return;}
+   user=u;
+   sessionRef.on('value',snap=>{shared=snap.val();renderLive();},err=>showMessage('Lecture Firebase refusée : '+err.message));
+ });
+}
+setInterval(()=>{if(user&&!accessGranted)renderLive();},1000);
+</script>
+<style>
+.live-gate{max-height:92vh;overflow:auto}.live-gate input{margin-bottom:4px}.live-gate .admin-row{margin-top:15px}#spectator{position:fixed;inset:0;z-index:120;background:#080b12;display:flex;flex-direction:column}#spectator.hidden{display:none}.watch-head{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;background:#13243a;padding:12px 22px;color:#9df1cd;font:12px 'IBM Plex Mono',monospace}.watch-head .btn{padding:6px 12px;font-size:11px}#spectatorFrame{width:100%;flex:1;border:0;background:#080b12}
+</style>
+</body></html>
