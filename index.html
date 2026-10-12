@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#070c12"/><title>PROTOCOLE OMEGA | I-ISLAND</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{color-scheme:dark;--bg:#070b11;--surface:#101b26;--surface2:#172633;--line:#354959;--edge:#22394a;--text:#eaf2f6;--sub:#9aacb9;--cyan:#92e5d7;--amber:#e8bd74;--red:#f38281;--green:#6ddea8;--mono:'IBM Plex Mono',monospace;--head:'Barlow Condensed',Impact,sans-serif;--shadow:0 22px 48px rgba(0,0,0,.33)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100%;background:#070b11;color:var(--text);font:14px/1.56 'Inter',Segoe UI,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.44}input{min-width:0} .hidden{display:none!important}.ambient{position:fixed;inset:0;pointer-events:none;background:linear-gradient(125deg,transparent 0,rgba(35,94,117,.11) 53%,transparent),radial-gradient(ellipse at 52% 0,rgba(24,72,90,.25),transparent 58%),repeating-linear-gradient(90deg,transparent 0 78px,rgba(129,183,200,.021) 79px,transparent 80px)} .ambient:before{content:'';position:absolute;inset:0;opacity:.16;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px)}
+.shell{max-width:1460px;margin:auto;padding:0 28px 28px;position:relative}.micro{font:600 10px/1.6 var(--mono);letter-spacing:1.5px}.teal{color:var(--cyan)}.amber{color:var(--amber)}.dim{color:#7e9aaa}.fine{color:var(--sub);font-size:12px}.eyebrow{font:600 11px var(--mono);letter-spacing:2px;color:#8eb7b8}.topbar{height:70px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2c3c48}.identity{display:flex;align-items:center;gap:13px}.mark{font:800 26px/1 var(--head);color:#f2f9fc;padding:9px 11px;border:1px solid #658b8d;transform:skew(-5deg);background:#1c3338}.mark span{color:#68ddc4}.topright{display:flex;align-items:center;gap:12px;color:#9eb6bc}.networkdot{width:7px;height:7px;border-radius:50%;background:#65d7a6;box-shadow:0 0 12px #65d7a6}.separator{width:1px;height:18px;background:#344954}.mast{padding:23px 0;display:flex;align-items:center;justify-content:space-between;gap:25px}.mast h1{font:800 clamp(45px,7vw,82px)/.98 var(--head);letter-spacing:3px;margin:6px 0 7px;color:#f0f5f6;text-shadow:0 4px 18px rgba(0,0,0,.36)}.mast h1 span{color:#b3d7d2}.mast h1 em{font-style:normal;color:#e9b56f}.lede{color:#a9c0c8;max-width:760px}.seal{width:144px;height:108px;flex:none;display:flex;flex-direction:column;justify-content:center;align-items:center;border:1px solid #47666d;background:repeating-linear-gradient(-45deg,transparent 0 13px,rgba(255,255,255,.018) 13px 15px),linear-gradient(#1a3039,#0d1b26);clip-path:polygon(10% 0,90% 0,100% 18%,100% 82%,90% 100%,10% 100%,0 82%,0 18%)}.seal span{color:#e8bd74;font:700 12px var(--mono);letter-spacing:2px}.seal strong{font:800 45px/.97 var(--head)}.seal small{font:600 7px var(--mono);letter-spacing:.8px;color:#9badb7}.statusline{border:1px solid #3d655f;background:linear-gradient(90deg,#133027,#10212d);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-radius:6px;font:600 11px var(--mono);letter-spacing:.3px}.statusline>div:last-child{display:flex;gap:7px;flex-wrap:wrap}.tag{border:1px solid #4a746f;background:#142b30;color:#98e8d9;padding:5px 8px;border-radius:3px;font:700 10px var(--mono);white-space:nowrap}.columns{display:grid;grid-template-columns:274px minmax(0,1fr);gap:18px;margin-top:16px}.sidebar{min-width:0}.main{min-width:0}.surface{border:1px solid #344858;background:linear-gradient(160deg,#162632 0,#101b26 48%,#0d1822 100%);box-shadow:var(--shadow);border-radius:8px}.timeline{margin:15px 0 18px;display:grid;gap:9px}.step{display:grid;grid-template-columns:36px 1fr;align-items:center;gap:10px;background:rgba(5,14,20,.52);border:1px solid #2a3d4d;border-radius:5px;padding:11px}.stepno{font:800 24px var(--head);color:#6c8796}.step b{display:block;font:700 12px var(--head);letter-spacing:.7px}.step small{font:500 9px var(--mono);color:#7996a6}.step.on{border-color:#5fa79d;box-shadow:inset 3px 0 #5fa79d}.step.on .stepno{color:#8de8d6}.step.done{border-color:#406a58}.step.done .stepno{color:#75cfa2}.progress{height:5px;background:#092028;overflow:hidden;border-radius:9px;margin:12px 0 6px}.progress>div{height:100%;background:linear-gradient(90deg,#4b99ad,#9fe6d0);transition:width .3s}.adminbox{padding:18px;margin-top:14px}.adminbox h3{font:700 26px var(--head);margin:4px 0 7px}.adminbox input{width:100%;background:#0a151e;border:1px solid #3a5364;color:#eef5f8;border-radius:4px;padding:10px 11px;margin:4px 0}.btn{border-radius:4px;border:1px solid transparent;padding:10px 13px;font:700 10px var(--mono);letter-spacing:.6px;color:#e9f5f8;text-align:center;transition:filter .14s,transform .14s;background:#204251}.btn:hover:not(:disabled){filter:brightness(1.15);transform:translateY(-1px)}.mutedbtn{border-color:#456474;background:linear-gradient(#243e4e,#1a2e3c)}.accentbtn{border-color:#78c3b0;background:linear-gradient(#267367,#205b53)}.dangerbtn{border-color:#9a5d53;background:linear-gradient(#683f3d,#513131)}.btnrow,.btnstack{display:flex;gap:7px;flex-wrap:wrap}.btnstack{flex-direction:column;margin-top:10px}.adminDivider{border-top:1px solid #344954;margin:18px 0}.agentSwitch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:12px}.agentSwitch button.active{border-color:#e3ae68;color:#ffddaf}.bottomnote{margin:20px 5px}.stageIntro{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.stageIntro h2{font:800 32px/1 var(--head);letter-spacing:1px;margin:6px 0}.stageIntro p{margin:0}.monitorChip{border:1px solid #3b615f;padding:9px 10px;white-space:nowrap;font:600 10px var(--mono);color:#8ed7c8;display:flex;gap:8px;align-items:center}.orb{width:8px;height:8px;border-radius:50%;background:#71ddb9;box-shadow:0 0 10px #71ddb9}.roster{padding:14px 18px;margin-top:12px}.sectionLabel{font:700 10px var(--mono);letter-spacing:1.5px;display:flex;justify-content:space-between;color:#a5c0c9}.sectionLabel small{color:#688d9b;font:600 9px var(--mono)}.seats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;margin-top:11px}.seat{border:1px solid #345166;background:linear-gradient(165deg,#213746,#15232e);text-align:center;border-radius:5px;padding:12px 5px 10px;min-width:0}.seat.mine{border-color:#d8b477;box-shadow:inset 0 2px #d8b477}.seat .usericon{width:15px;height:15px;border:2px solid #7b9eb1;border-radius:50%;margin:0 auto 6px;position:relative}.seat .usericon:after{content:'';position:absolute;width:21px;height:9px;border:2px solid #7b9eb1;border-bottom:0;border-radius:9px 9px 0 0;left:-5px;top:13px}.seat strong{display:block;color:#d7ebf2;font:700 11px var(--mono);margin-top:11px}.seat small{display:block;color:#7896a6;font:500 9px var(--mono);overflow-wrap:anywhere}.seat button{margin-top:8px;width:100%;padding:6px 3px}.gameContainer{margin-top:14px}.notice{color:#f0c589;font:500 12px var(--mono);min-height:25px;margin-top:10px}footer{display:flex;justify-content:space-between;gap:10px;margin-top:25px;color:#688a9b;font:600 9px var(--mono);letter-spacing:1px;border-top:1px solid #243b4c;padding:18px 0}
+.card{border:1px solid #334d5d;background:linear-gradient(170deg,#142533,#0d1923);box-shadow:var(--shadow);border-radius:7px;padding:20px}.gameHeader{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:17px}.gameHeader h3{font:800 32px/1.06 var(--head);letter-spacing:.4px;margin:7px 0 8px}.gameHeader p{margin:0;color:#aac0c7;font-size:12px;max-width:780px}.panelbadge{padding:7px 10px;border:1px solid #5d766e;color:#a9e8d2;white-space:nowrap;font:700 10px var(--mono)}.readout{padding:10px 13px;background:linear-gradient(#091a20,#07131b);border:1px solid #32505a;box-shadow:inset 0 2px 10px rgba(0,0,0,.5);border-radius:3px;color:#9be4c5;font:700 19px var(--mono);letter-spacing:2px}.hardware{background:linear-gradient(133deg,rgba(255,255,255,.035),transparent 38%),repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.008) 4px 5px),linear-gradient(#273946,#182630 55%,#13212a);border:2px solid #415565;box-shadow:inset 0 1px 0 #536874,inset 0 -4px 12px rgba(0,0,0,.3),0 9px 26px rgba(0,0,0,.25);border-radius:8px;position:relative;padding:19px}.hardware:before,.hardware:after{position:absolute;content:'⊕';font:600 17px var(--mono);color:#667b85;top:3px}.hardware:before{left:7px}.hardware:after{right:7px}.hwlabel{font:700 10px var(--mono);letter-spacing:1.5px;color:#8faeb9;margin-bottom:11px}.hwfield{padding:10px;border:1px solid #374e60;background:rgba(5,14,20,.43)}.hwfield small{display:block;color:#829ca9;font:500 9px var(--mono)}.hwfield b{font:700 15px var(--mono);color:#d4e9ee}.screentitle{color:var(--cyan);font:700 10px var(--mono);letter-spacing:1.3px}.flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.pill{padding:5px 9px;border:1px solid #476b73;font:600 10px var(--mono);color:#a1cfcd}.pill.good{border-color:#409069;color:#85e0aa;background:rgba(57,151,102,.08)}.pill.bad{border-color:#965255;color:#f49898;background:rgba(163,40,49,.1)}
+/* Simon */.simonGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:18px;min-height:185px}.simonPad{height:145px;position:relative;border:4px solid rgba(0,0,0,.45);border-radius:15px;background:linear-gradient(160deg,var(--padhi),var(--padlo));box-shadow:inset 1px 2px rgba(255,255,255,.11),inset 0 -10px rgba(0,0,0,.26),0 10px 14px rgba(0,0,0,.3);color:white;transition:background .07s,filter .07s}.simonPad:before{content:'';position:absolute;inset:9px;border:1px solid rgba(255,255,255,.12);border-radius:8px}.simonPad strong{position:absolute;bottom:13px;left:14px;font:700 13px var(--mono);letter-spacing:1.4px;text-shadow:0 2px 2px #000}.simonPad .light{position:absolute;right:14px;top:14px;width:9px;height:9px;border-radius:50%;background:#24343b}.simonPad.lit{filter:brightness(1.9);box-shadow:0 0 32px var(--glow),inset 0 0 16px rgba(255,255,255,.32)}.simonPad.lit .light{background:white;box-shadow:0 0 13px white}.simonPad:disabled{opacity:.72}.simonPad:disabled.lit{opacity:1}.simred{--padhi:#812f3c;--padlo:#3b111b;--glow:#e95970}.simyellow{--padhi:#9a762a;--padlo:#4e3814;--glow:#eabb58}.simgreen{--padhi:#256f57;--padlo:#123e32;--glow:#5de7ab}.simblue{--padhi:#235e81;--padlo:#16334d;--glow:#5aa9e0}.simwhite{--padhi:#697b81;--padlo:#2d3c43;--glow:#e2ffff}.simonControls{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;margin:15px 0}.simonDots{display:flex;gap:4px;flex-wrap:wrap}.simonDots span{width:10px;height:10px;border-radius:2px;border:1px solid #527083;background:#10202a}.simonDots span.ok{background:#65bda4;border-color:#8fe4c5}.smallStat{color:#9bb7c4;font:600 10px var(--mono)}
+/* Pipes */.pipesFrame{max-width:850px;margin:18px auto 8px;padding:20px 22px;background:linear-gradient(#202f3a,#12202a);border:4px solid #3c5360;box-shadow:0 16px 30px #0005,inset 0 2px 0 #71808a;border-radius:10px}.pipeGrid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:5px}.pipeTile{aspect-ratio:1;border-radius:5px;border:2px solid #2c4654;background:radial-gradient(circle at 45% 40%,#314b5b,#14232e 80%);position:relative;overflow:hidden}.pipeTile.own{border-color:#c9ac77}.pipeTile .arm{position:absolute;display:block;z-index:1;background:linear-gradient(90deg,#7698a8,#c5dce0 30%,#6c8998 68%,#496678);box-shadow:inset 1px 0 #d8eeec,0 0 10px #6b92974a}.arm.up,.arm.down{width:24%;height:54%;left:38%}.arm.up{top:0}.arm.down{bottom:0}.arm.left,.arm.right{height:24%;width:54%;top:38%}.arm.left{left:0}.arm.right{right:0}.pipeTile .hub{position:absolute;z-index:2;left:31%;top:31%;width:38%;height:38%;border-radius:50%;border:4px solid #a4c3c9;background:radial-gradient(circle at 35% 30%,#587883,#1b3442 74%);box-shadow:inset 0 0 7px #0008}.pipeTile .bolt{position:absolute;z-index:3;width:5px;height:5px;border-radius:50%;background:#506974;top:7px;left:7px}.pipeTile.connected .hub{background:radial-gradient(circle,#b4e6d5,#2d9377)}.pipeTile:disabled{opacity:1;cursor:default}.pipelabels{display:flex;justify-content:space-between;margin:11px auto 0;max-width:670px;font:700 10px var(--mono);letter-spacing:1.5px;color:#8eb3bd}.progressHeading{font:700 12px var(--mono);color:#b2d8d7}
+/* Vault */.vaultTop{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}.timer{font:800 31px var(--mono);letter-spacing:3px;color:#eed28d;background:linear-gradient(#0c1419,#060d12);padding:6px 16px;border:1px solid #565245;box-shadow:inset 0 0 15px rgba(0,0,0,.5)}.timer.urgent{color:#f87d76;animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.58}}.strikebar{display:flex;align-items:center;gap:9px}.strike{width:16px;height:16px;border-radius:50%;border:2px solid #825b52;background:#2c1e1e}.strike.on{background:#e0645c;box-shadow:0 0 16px #e0645c}.vaultGrid{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px}.moduleList{display:grid;gap:8px}.modStatus{display:flex;gap:10px;align-items:center;border:1px solid #344c5a;background:#11212c;padding:11px}.modStatus .number{font:800 25px var(--head);color:#a1c4cc}.modStatus strong{font:700 12px var(--mono);letter-spacing:.5px}.modStatus small{color:#7697a6;font:500 10px var(--mono)}.modStatus.done{border-color:#357960;background:#102b22}.modStatus.done .number{color:#75dba4}.coordinatorCard{border:1px solid #9e8461;background:linear-gradient(120deg,#b9aa8f,#eee5d0 5%,#e5dcc8 90%,#bdaf94);color:#342b24;padding:19px;border-radius:3px;box-shadow:5px 8px 26px #0008;max-width:800px}.paperHead{border-bottom:2px solid #3d332a;padding-bottom:12px;margin-bottom:15px;display:flex;align-items:center;justify-content:space-between;gap:12px;font:700 10px var(--mono)}.redstamp{border:2px solid #a54d42;color:#a54d42;font:800 14px var(--head);padding:5px 9px;transform:rotate(-7deg);letter-spacing:2px}.coordinatorCard h4{font:800 32px/1 var(--head);margin:0 0 12px}.coordinatorCard p,.coordinatorCard li{font:500 13px/1.7 Inter,Arial}.coordinatorCard .pageid{border-top:1px solid #978f7e;margin-top:24px;padding-top:12px;display:flex;justify-content:space-between;font:700 10px var(--mono)}.paperNav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}.paperNav button{border:1px solid #a69b83;background:#40362d;color:#fff}.paperTable{width:100%;border-collapse:collapse;color:#312e27;margin:13px 0;font-size:12px}.paperTable th,.paperTable td{border:1px solid #958c79;padding:6px 8px;text-align:left}.paperTable th{background:#d2c5ab}.paperCode{font:700 12px var(--mono);padding:10px;border-left:4px solid #a67e46;background:#d3c9b3;white-space:pre-wrap;color:#332c24}.manualGrid{display:grid;grid-template-columns:repeat(4,30px);gap:4px;margin:8px 0}.manualGrid span{width:30px;height:30px;border:1px solid #827765;background:#e6dac4}.manualGrid span.fill{background:#554d42}.modOnly{min-width:0}.moduleDeck{display:grid;gap:14px}.manualStatus{color:#e5bd76;font:600 12px var(--mono)}.moduleHeader{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:13px}.moduleHeader h4{font:800 24px var(--head);letter-spacing:.6px;margin:0}.moduleHeader span{font:700 10px var(--mono);color:#a1b9c5}.phaseDisplay{display:flex;justify-content:space-between;gap:8px;margin:10px 0;flex-wrap:wrap}.specList{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}.spec{background:#0b171e;border:1px solid #3b5862;padding:9px;color:#8fc7bc;font:700 11px var(--mono)}.spec small{display:block;color:#829bad;font-size:9px;letter-spacing:1px}.wires{padding:14px 10px;background:repeating-linear-gradient(90deg,#273540 0 9px,#24323c 9px 12px);border:1px solid #4a5c68;border-radius:5px}.wireLine{display:grid;grid-template-columns:25px 1fr 40px;gap:7px;align-items:center;margin:12px 0}.wireNo{font:700 11px var(--mono);color:#b5c4ca}.wire{height:14px;border-radius:13px;border-top:2px solid #fff6;box-shadow:0 3px 4px #0008,inset 0 -4px #0005}.wire.R{background:#b54249}.wire.B{background:#2b8dc6}.wire.J{background:#d3ad4c}.wire.N{background:#333b40}.wire.V{background:#3e9971}.wire.X{background:#a9b6bf}.wire.cut{opacity:.28;transform:scaleX(.94)}.wireLine button{padding:7px 5px;font-size:9px}.knobRow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.knobUnit{text-align:center;background:#14212a;border:1px solid #4d606d;padding:13px 8px}.knobUnit label{display:block;color:#a2bec6;font:700 10px var(--mono)}.knobCircle{width:min(100%,110px);aspect-ratio:1;margin:11px auto;border-radius:50%;border:7px solid #293843;background:radial-gradient(circle at 35% 25%,#61717e,#273640 56%,#13202a);box-shadow:inset 0 2px 5px #99aabb33,0 9px 9px #0005;display:grid;place-items:center;color:#d0f9f4;font:800 30px var(--mono);position:relative}.knobCircle:after{content:'';width:6px;height:18px;background:#d6e3e6;position:absolute;top:4px;left:calc(50% - 3px);border-radius:3px}.knobButtons{display:flex;justify-content:center;gap:8px}.knobButtons button{width:36px;height:36px;padding:0;border-radius:50%;font:800 20px var(--mono)}.matrixGrid{display:grid;grid-template-columns:repeat(4,minmax(40px,74px));justify-content:center;gap:8px;margin:17px auto}.matrixCell{aspect-ratio:1;border-radius:6px;border:3px solid #253b49;background:radial-gradient(circle,#243e4a,#101c25);box-shadow:inset 0 1px #64778540,0 6px 6px #0007}.matrixCell.on{background:radial-gradient(circle,#b4e6bc 0,#65c9a2 35%,#277263 70%);box-shadow:0 0 20px #5ec69d66,inset 0 1px #d7ffe5}.matrixCell:disabled{opacity:1}.scope{width:100%;height:180px;border:5px solid #3b525d;border-radius:5px;background:#08171a;box-shadow:inset 0 0 35px #0009}.scope text{font:600 10px var(--mono);fill:#6a9c92}.scope line{stroke:#245049;stroke-width:1;opacity:.75}.scope polyline{fill:none;stroke:#5aeca4;stroke-width:3;filter:drop-shadow(0 0 4px #5aeca4)}.scope polyline.target{stroke:#e8c17f;stroke-width:1.7;stroke-dasharray:4 7;opacity:.65;filter:none}.workhint{padding:12px;border-left:3px solid #9bbba6;background:#12262b;color:#9dcac1;font:600 11px var(--mono)}.center{display:flex;justify-content:center;align-items:center}.cta{font:800 13px var(--mono);letter-spacing:1px;padding:14px 17px}
+@media(max-width:1030px){.columns{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.adminbox{margin:0}.bottomnote{grid-column:1/-1}.vaultGrid{grid-template-columns:1fr}.moduleList{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:660px){.shell{padding:0 12px 24px}.topbar{height:auto;padding:13px 0;gap:10px}.topright{align-items:flex-end;flex-direction:column;gap:4px}.seal{display:none}.mast h1{font-size:48px}.columns,.sidebar{display:block}.adminbox{margin-top:12px}.stageIntro{display:block}.monitorChip{margin-top:11px;display:inline-flex}.roster{padding:12px}.seats{gap:5px}.seat{padding:9px 3px}.seat strong{font-size:9px}.seat small{font-size:8px}.seat button{font-size:8px;padding:6px 1px}.simonGrid{gap:5px;padding:10px}.simonPad{height:76px;border-width:2px;border-radius:7px}.simonPad strong{bottom:5px;left:3px;font-size:7px;letter-spacing:0}.simonPad .light{top:5px;right:5px;width:5px;height:5px}.card{padding:13px}.hardware{padding:13px}.pipesFrame{padding:10px}.pipeGrid{gap:3px}.pipeTile .hub{border-width:2px}.moduleList{grid-template-columns:1fr}.specList{gap:5px}.knobRow{gap:5px}.knobUnit{padding:8px 2px}.knobCircle{font-size:22px;border-width:4px}.knobButtons{gap:4px}.knobButtons button{width:29px;height:29px}.vaultTop{align-items:flex-start}.timer{font-size:23px}.gameHeader h3{font-size:26px}footer span{display:none}}
+
+/* Extension coopérative : 100 raccords, quatre bornes et flow-map. */
+.pipeTile{border-radius:7px;transition:border-color .14s,box-shadow .14s;min-width:0}
+.pipeTile.carrying{background:radial-gradient(circle at 45% 40%,#2a5865,#152e3b 88%);box-shadow:inset 0 0 16px #54d9e322,0 0 7px #70d5e51b}
+.pipeTile.terminal{border-color:#d0ac67!important;box-shadow:inset 0 0 0 1px #e4b87355,0 0 12px #d9b66f33}
+.pipeTile .pipePortTag{position:absolute;left:3px;top:2px;color:#ffd99a;font:800 10px ui-monospace,monospace;z-index:4;text-shadow:0 1px 2px #000}
+.pipeEndpoints{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:12px 0 16px}
+.pipeEndpoint{display:flex;gap:7px;align-items:center;justify-content:center;border:1px solid #47616b;background:#111f2a;color:#a9bdc8;font:700 11px ui-monospace,monospace;min-height:40px;padding:7px;border-radius:6px;text-align:center}
+.pipeEndpoint.online{border-color:#3c9b81;color:#a5f6df;background:#14352f}
+.pipeEndpointLed{display:inline-block;flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#4f6371;box-shadow:inset 0 0 3px #000}
+.pipeEndpoint.online .pipeEndpointLed{background:#7bf5c0;box-shadow:0 0 12px #54cf9b}
+.pipeInstruction{margin:13px 3px 8px;color:#a4c2ce;font-size:12px}
+@media(max-width:660px){.pipesFrame{padding:9px;max-width:100%;border-width:2px}.pipeGrid{gap:2px}.pipeTile{border-width:1px;border-radius:3px}.pipeEndpoints{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.pipeEndpoint{font-size:10px}.pipeTile .pipePortTag{font-size:8px}.pipeTile .hub{width:34%;height:34%;left:33%;top:33%}}
+</style></head><body>
+<div class="ambient" aria-hidden="true"></div><div class="shell">
+<header class="topbar">
+ <div class="identity"><div class="mark">I<span>·</span>I</div><div><div class="micro teal">I-ISLAND // BUREAU D'ENQUÊTE</div><div class="micro dim">SYSTÈME INTERNE · DOSSIER C-07 · CORRUPTION</div></div></div>
+ <div class="topright"><span class="networkdot"></span><span id="connect" class="micro">INITIALISATION</span><span class="separator"></span><span id="clock" class="micro">--:--:--</span></div>
+</header>
+<div class="mast"><div><div class="eyebrow">RÉSEAU D'INVESTIGATION // ARCHIVES SCELLÉES</div><h1>PROTOCOL<span>E</span> <em>Ω</em></h1><div class="lede">Accès aux preuves de détournements, marchés publics truqués et dissimulation de transactions.</div></div><div class="seal"><span>CLASSIFIÉ</span><strong>07</strong><small>AUTORISATION COLLECTIVE</small></div></div>
+<div class="statusline"><div id="headline">Connexion au réseau sécurisé…</div><div><span id="role" class="tag">SPECTATEUR</span><span class="tag" id="mode">EN LIGNE</span></div></div>
+<div class="columns">
+<aside class="sidebar">
+<div class="surface" style="padding:18px"><div class="micro dim">PROGRESSION DE L'OPÉRATION</div><div class="timeline" id="stages"></div><div class="progress"><div id="progressBar"></div></div><div id="progressLabel" class="micro dim">0 / 3 SECTEURS</div></div>
+<div class="surface adminbox"><div class="micro amber">CONTRÔLE OPÉRATEUR</div><h3>Administration</h3><p class="fine">Réservé à l'organisateur. Le mode test se joue depuis un seul navigateur.</p>
+ <input id="email" type="email" autocomplete="username" placeholder="E-mail administrateur"/><input id="password" type="password" autocomplete="current-password" placeholder="Mot de passe"/>
+ <div class="btnrow"><button id="login" class="btn mutedbtn">CONNEXION</button><button id="logout" class="btn mutedbtn hidden">DÉCONNEXION</button></div>
+ <div id="adminTools" class="hidden"><div class="adminDivider"></div><div class="micro amber">MODE TEST · SIMULATION</div><div class="btnstack"><button id="simulate" class="btn accentbtn">SIMULER 5 AGENTS</button><button id="skip" class="btn mutedbtn">PASSER L'ÉPREUVE →</button><button id="reset" class="btn mutedbtn">RÉINITIALISER LA PARTIE</button><button id="cooldown" class="btn dangerbtn">TESTER COOLDOWN 10 MIN</button></div><div id="agentSwitch" class="agentSwitch"></div></div>
+ </div>
+<div class="fine bottomnote">Les activités représentées sont fictives et liées à un scénario de jeu de rôle. Les données de partie sont synchronisées via Firebase.</div>
+</aside>
+<main class="main">
+ <div class="stageIntro surface"><div><div class="micro teal" id="phase">EN ATTENTE DE CONNEXION</div><h2 id="title">Salle de crise</h2><p id="desc" class="fine">Ouverture de la liaison chiffrée…</p></div><div class="monitorChip" id="monitorChip"><span class="orb"></span><span>LECTURE EN DIRECT</span></div></div>
+ <div class="roster surface"><div class="sectionLabel"><span>RÉPARTITION DES POSTES</span><small>5 CONNEXIONS REQUISES</small></div><div id="seats" class="seats"></div></div>
+ <section id="game" aria-label="Épreuve interactive" class="gameContainer"></section>
+ <div id="notice" class="notice" role="status" aria-live="polite"></div>
+</main></div><footer>COMMISSION INDÉPENDANTE · I-ISLAND <span>LE PROTOCOLE / DOSSIER 07 / FICTION RP</span></footer>
+</div>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script>'use strict';
+const FIREBASE_CONFIG={apiKey:'AIzaSyChVKywrZNmJdByJlAMSrlZob8OyegZgpo',authDomain:'enigme-unbound.firebaseapp.com',databaseURL:'https://enigme-unbound-default-rtdb.europe-west1.firebasedatabase.app',projectId:'enigme-unbound',storageBucket:'enigme-unbound.firebasestorage.app',messagingSenderId:'63577456323',appId:'1:63577456323:web:dcf5d48648abb58b396c76'};
+const ADMIN_UID='BEtopfLdeJRTgo1kzUKpw39xESf2';
+const VIDEO='https://youtu.be/U5LT-XpWVqY';
+const COOLDOWN=10*60*1000, VAULT_TIME=15*60*1000;
+const STAGES=[['SIMON // ACCÈS', 'Système de sécurité d’un réseau détourné. Chaque opérateur commande une couleur : reproduisez quinze séquences pour retrouver les accès corrompus.'],['PIPE MANIA // FLUX', 'Reconnectez 100 conduites réparties entre cinq secteurs pour alimenter trois destinations liées aux fonds détournés.'],['OMEGA // COFFRE', 'Un coordinateur détient seul le manuel d’ouverture. Quatre opérateurs manipulent les câbles, les cadrans, la matrice et les fréquences, sans voir ses procédures.']];
+const PAD_NAMES=['ROUGE','AMBRE','VERT','BLEU','BLANC'], PAD_CSS=['simred','simyellow','simgreen','simblue','simwhite'];
+// Réseau à embranchements déterministe par salle, partagé via Firebase.
+// Les quatre bornes sont ouvertes vers l'extérieur : 1 entrée et 3 sorties.
+const PIPE_SIDE=10, PIPE_COUNT=PIPE_SIDE*PIPE_SIDE;
+const PIPE_PORTS=[
+ {index:0,dir:8,label:'FONDS PUBLICS',kind:'source',short:'IN'},
+ {index:9,dir:1,label:'SOCIÉTÉ ÉCRAN',kind:'exit',short:'A'},
+ {index:59,dir:2,label:'COMPTE OFFSHORE',kind:'exit',short:'B'},
+ {index:99,dir:4,label:'BÉNÉFICIAIRE FINAL',kind:'exit',short:'C'}
+];
+const PIPE_DIRS=[[-1,0,1,4],[0,1,2,8],[1,0,4,1],[0,-1,8,2]];
+const pipeLayouts=new Map();
+function pipeGoal(seed){
+ const key=Number(seed)||13492;
+ if(pipeLayouts.has(key))return pipeLayouts.get(key);
+ const masks=Array(PIPE_COUNT).fill(0),seen=Array(PIPE_COUNT).fill(false);
+ const random=rng((key^0x72fc81bd)>>>0),frontier=[];
+ function push(i){const r=Math.floor(i/PIPE_SIDE),c=i%PIPE_SIDE;
+   for(const [dr,dc,a,b] of PIPE_DIRS){const rr=r+dr,cc=c+dc;if(rr>=0&&rr<PIPE_SIDE&&cc>=0&&cc<PIPE_SIDE&&!seen[rr*PIPE_SIDE+cc])frontier.push([i,rr*PIPE_SIDE+cc,a,b]);}}
+ seen[0]=true;push(0);
+ let n=1;
+ while(n<PIPE_COUNT&&frontier.length){const k=Math.floor(random()*frontier.length),[from,to,a,b]=frontier[k];frontier[k]=frontier[frontier.length-1];frontier.pop();if(seen[to])continue;
+  masks[from]|=a;masks[to]|=b;seen[to]=true;n++;push(to);
+ }
+ for(const port of PIPE_PORTS)masks[port.index]|=port.dir;
+ pipeLayouts.set(key,masks);
+ return masks;
+}
+function pipeInitial(seed){
+ const goal=pipeGoal(seed),rand=rng((seed^0x1ab4)>>>0);
+ // Brouillage visuel : plusieurs orientations par pièce. Les droites sont symétriques.
+ return goal.map(mask=>{
+  if(mask===15)return 0;
+  const possibilities=[0,1,2,3].filter(turn=>rotation(mask,turn)!==mask);
+  return possibilities[Math.floor(rand()*possibilities.length)];
+ });
+}
+function pipeRotations(s){return Array.isArray(s?.pipes?.rot)&&s.pipes.rot.length===PIPE_COUNT?s.pipes.rot:pipeInitial(s.seed||13492)}
+function pipeNetwork(seed,rot){
+ const goal=pipeGoal(seed),mask=goal.map((m,i)=>rotation(m,rot[i]||0));
+ const visited=new Set([0]),queue=[0], leaks=[];
+ while(queue.length){const pos=queue.shift(),r=Math.floor(pos/PIPE_SIDE),c=pos%PIPE_SIDE,m=mask[pos];
+   for(const [dr,dc,bit,opp] of PIPE_DIRS){if(!(m&bit))continue;const rr=r+dr,cc=c+dc;
+      if(rr<0||rr>=PIPE_SIDE||cc<0||cc>=PIPE_SIDE){
+         if(!PIPE_PORTS.some(p=>p.index===pos&&p.dir===bit))leaks.push(pos);continue;
+      }
+      const next=rr*PIPE_SIDE+cc;
+      if(!(mask[next]&opp)){leaks.push(pos);continue;}
+      if(!visited.has(next)){visited.add(next);queue.push(next)}
+   }
+ }
+ // Le test global ne se limite pas au chemin jusqu'aux 3 sorties : il interdit
+ // les raccords en fuite, les bords ouverts, et les morceaux isolés.
+ let allClosed=true;
+ for(let i=0;i<PIPE_COUNT;i++){
+   const r=Math.floor(i/PIPE_SIDE),c=i%PIPE_SIDE;
+   for(const [dr,dc,bit,opp] of PIPE_DIRS){const rr=r+dr,cc=c+dc,open=!!(mask[i]&bit);
+     if(rr<0||rr>=PIPE_SIDE||cc<0||cc>=PIPE_SIDE){if(open!==PIPE_PORTS.some(p=>p.index===i&&p.dir===bit))allClosed=false;}
+     else if(open!==!!(mask[rr*PIPE_SIDE+cc]&opp))allClosed=false;
+   }
+ }
+ const outputs=PIPE_PORTS.filter(p=>p.kind==='exit').map(p=>visited.has(p.index)&&!!(mask[p.index]&p.dir));
+ return {mask,visited,outputs,solved:allClosed&&visited.size===PIPE_COUNT&&outputs.every(Boolean),leaks};
+}
+const PATTERNS={
+ 'ÉCHELLE':['1001','1111','1001','1111'],
+ 'ARCHIVE':['0110','1001','1111','1001'],
+ 'SCEAU':['0110','1111','1111','0110'],
+ 'CLEF':['1110','0100','0111','0100']
+};
+const WIRE_NAMES={R:'ROUGE',B:'BLEU',J:'JAUNE',N:'NOIR',V:'VERT',X:'BLANC'};
+const WIRE_PRESETS=[
+ {colors:'RRBJNV',serial:8,indicator:'A'},
+ {colors:'VJBNXR',serial:5,indicator:'B'},
+ {colors:'NBVXRN',serial:3,indicator:'C'},
+ {colors:'JXRVBN',serial:6,indicator:'D'},
+ {colors:'RRNJBX',serial:4,indicator:'A'},
+ {colors:'XNVBRN',serial:7,indicator:'B'}
+];
+const DIAL_PRESETS=[
+ {contract:'C-7284',audit:3,notice:5,seal:'AZUR'},
+ {contract:'C-5917',audit:6,notice:2,seal:'CARMIN'},
+ {contract:'C-3429',audit:4,notice:7,seal:'AZUR'},
+ {contract:'C-1276',audit:2,notice:4,seal:'CARMIN'}
+];
+const MAT_PRESETS=[
+ {pattern:'ÉCHELLE',turn:90,registry:'D-17'},
+ {pattern:'SCEAU',turn:270,registry:'D-42'},
+ {pattern:'ARCHIVE',turn:180,registry:'D-81'},
+ {pattern:'CLEF',turn:0,registry:'D-26'}
+];
+const RADIO_PRESETS=[
+ {band:'NORD',ref:4,serial:7,channel:'FB-407'},
+ {band:'OUEST',ref:3,serial:6,channel:'FS-316'},
+ {band:'SUD',ref:8,serial:2,channel:'FN-882'},
+ {band:'EST',ref:1,serial:5,channel:'FE-105'}
+];
+const RADIO_OFFSETS={NORD:2,SUD:4,EST:6,OUEST:8};
+const $=id=>document.getElementById(id), create=(tag,cls='',txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};
+const action=(txt,handler,cl='mutedbtn')=>{const b=create('button','btn '+cl,txt);b.type='button';b.addEventListener('click',handler);return b};
+function appendText(el,cls,text){const n=create('div',cls,text);el.append(n);return n}
+function msg(t){$('notice').textContent=t||''}
+function copy(v){return JSON.parse(JSON.stringify(v))}
+function modulo(a,n){return ((a%n)+n)%n}
+function rotation(mask,n){let v=mask;for(let i=0;i<modulo(n,4);i++){v=((v&1)<<1)|((v&2)<<1)|((v&4)<<1)|((v&8)>>3)}return v}
+function rng(seed){let x=(seed>>>0)||1234567;return ()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296}}
+function scramble(size,seed){const random=rng(seed),out=[];for(let i=0;i<size;i++)out.push(Math.floor(random()*4));return out}
+function simonSequence(seed){const rand=rng((seed^0x8badf00d)>>>0),seq=[];for(let i=0;i<15;i++){let n=Math.floor(rand()*5);if(i&&n===seq[i-1])n=(n+1+Math.floor(rand()*4))%5;seq.push(n)}return seq}
+function simonTempo(level){return Math.max(300,780-(level-1)*34)}
+function simonDuration(s){return 350+s.simon.level*simonTempo(s.simon.level)+260}
+function simonFlashing(s,now=Date.now()){return s.stage===0 && s.status==='active' && s.simon.showAt>0 && now<s.simon.showAt+simonDuration(s)}
+function simonFlash(s,now=Date.now()){if(!simonFlashing(s,now))return -1;const p=now-s.simon.showAt-350,t=simonTempo(s.simon.level);if(p<0)return -1;const idx=Math.floor(p/t);if(idx>=s.simon.level)return -1;return p%t<Math.floor(t*.58)?simonSequence(s.seed)[idx]:-1}
+function wireConfig(s){return WIRE_PRESETS[(s.seed+s.vault.wires.round)%WIRE_PRESETS.length]}
+function wireAnswer(c){const a=c.colors.split(''), reds=a.map((v,i)=>v==='R'?i:-1).filter(v=>v>=0);if(c.serial%2===0&&reds.length>=2)return reds.at(-1);if(a.includes('J')&&a.includes('B'))return a.indexOf('B');if(!a.includes('J'))return 1;return a.lastIndexOf('N')>=0?a.lastIndexOf('N'):5}
+function dialConfig(s){return DIAL_PRESETS[(s.seed+s.vault.dials.round)%DIAL_PRESETS.length]}
+function dialAnswer(c){const a=Number(c.contract.slice(-1)),b=(c.audit+c.notice)%10;return [a,b,(a+b+(c.seal==='AZUR'?1:3))%10]}
+function matConfig(s){return MAT_PRESETS[(s.seed+s.vault.matrix.round)%MAT_PRESETS.length]}
+function matAnswer(c){const base=PATTERNS[c.pattern].join('').split('').map(Number);let out=base;for(let j=0;j<c.turn/90;j++){const next=Array(16).fill(0);for(let r=0;r<4;r++)for(let col=0;col<4;col++)next[col*4+3-r]=out[r*4+col];out=next}return out}
+function radioConfig(s){return RADIO_PRESETS[(s.seed+s.vault.radio.round)%RADIO_PRESETS.length]}
+function radioAnswer(c){const offset=RADIO_OFFSETS[c.band];return [(c.ref+offset)%10,(c.serial+(c.band==='NORD'||c.band==='EST'?1:3))%10,(c.ref+c.serial+offset)%10]}
+function makeVault(){return {startedAt:Date.now(),strikes:0,wires:{round:0},dials:{round:0,values:[0,0,0]},matrix:{round:0,cells:Array(16).fill(0)},radio:{round:0,values:[0,0,0]}}}
+function initial(seed=Math.floor(Math.random()*999999)+1){return {status:'waiting',stage:0,simulation:false,unlockAt:0,seats:[null,null,null,null,null],seed,startedAt:0,simon:{level:1,index:0,strikes:0,showAt:0},pipes:{rot:pipeInitial(seed)},vault:makeVault()}}
+function completed(v){return v.wires.round>=3&&v.dials.round>=2&&v.matrix.round>=2&&v.radio.round>=2}
+function rotateStart(s){return s.stage===1&&pipeNetwork(s.seed,pipeRotations(s)).solved}
+function vaultExpired(s){return s.status==='active'&&s.stage===2&&Date.now()>s.vault.startedAt+VAULT_TIME}
+function failed(s){s.status='cooldown';s.unlockAt=Date.now()+COOLDOWN;return s}
+let auth=null,db=null,roomRef=null,user=null,room=null,simulationSeat=0,manualPage=0,busy=false,demo=new URLSearchParams(location.search).has('demo'),roomListener=false,clockOffset=0,lightFrame='';
+function isAdmin(){return demo||!!user&&user.uid===ADMIN_UID}
+function position(s){return (s.seats||[]).findIndex(v=>v&&user&&v.uid===user.uid)}
+function activePosition(s){return s.simulation&&isAdmin()?simulationSeat:position(s)}
+function canAct(s,pos){return s&&s.status==='active'&&activePosition(s)===pos&&(!s.simulation||isAdmin())}
+function remaining(ms){const sec=Math.max(0,Math.ceil(ms/1000));return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
+async function update(fn){if(busy)return false;busy=true;try{
+ if(demo){const newRoom=fn(copy(room));if(newRoom===undefined){return false;}room=newRoom;render();return true;}
+ if(!roomRef||!user){msg('Connexion Firebase indisponible.');return false;}
+ const result=await roomRef.transaction(old=>{const current=old?copy(old):initial();current.seats=Array.from({length:5},(_,i)=>current.seats?.[i]||null);return fn(current)},undefined,false);
+ if(!result.committed){msg('Action refusée : état de partie modifié ou droits insuffisants.');return false;}
+ return true;
+ }catch(err){msg('Erreur Firebase : '+err.message);return false;}finally{busy=false}}
+function startStage(s,stage){s.stage=stage;if(stage===0){s.simon={level:1,index:0,strikes:0,showAt:Date.now()+600}}if(stage===1){s.pipes={rot:pipeInitial(s.seed)}}if(stage===2){s.vault=makeVault()}}
+function startSimulation(){if(!isAdmin()||!confirm('Lancer cinq agents simulés et remplacer la partie en cours ?'))return;simulationSeat=0;manualPage=0;update(()=>{const s=initial();s.simulation=true;s.status='active';s.seats=Array.from({length:5},(_,i)=>({uid:'simulated-'+i}));startStage(s,0);return s})}
+function skip(){if(!isAdmin()||!room?.simulation||room.status!=='active')return;if(!confirm('Passer cette épreuve pour TOUS les visiteurs ?'))return;manualPage=0;update(s=>{if(!s.simulation||s.status!=='active')return;if(s.stage===2)s.status='completed';else startStage(s,s.stage+1);return s})}
+function reset(){if(!isAdmin()||!confirm('Réinitialiser la partie pour TOUS les visiteurs ?'))return;simulationSeat=0;manualPage=0;update(()=>initial())}
+function testCooldown(){if(!isAdmin()||!confirm('Activer dix minutes de cooldown pour TOUS ?'))return;update(s=>failed(s))}
+function join(i){update(s=>{if(s.status==='cooldown'&&s.unlockAt<Date.now())s=initial();if(s.status!=='waiting'||s.simulation||position(s)!==-1||s.seats[i])return;s.seats[i]={uid:user.uid};if(s.seats.every(Boolean)){s.status='active';startStage(s,0)}return s})}
+function leave(){update(s=>{if(s.status!=='waiting'||s.simulation)return;const i=position(s);if(i<0)return;s.seats[i]=null;return s})}
+function rebootCooldown(){if(!room||room.status!=='cooldown'||room.unlockAt>Date.now())return;update(s=>{if(s.status!=='cooldown'||s.unlockAt>Date.now())return;return initial()})}
+function nowFmt(){const d=new Date();return d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}
+// --- Manuel papier : chaque page est lisible seulement par l'agent coordinateur. ---
+const MANUAL=[
+ {title:'PROTOCOLE OMEGA',sub:'OUVERTURE DU COFFRE · MANUEL CLASSIFIÉ',html:`<p><b>Cellule spéciale d’enquête, I-Island.</b> Ce dossier décrit les procédures de restauration d’archives saisies lors de l’enquête sur les marchés publics truqués.</p><p>Le coordinateur a seul accès à ces règles. Les quatre techniciens disposent des instruments mais <b>ne voient pas le manuel</b>.</p><div class="paperCode">DOSSIER : C-07 / NIVEAU : OMEGA\nAUTORISATION : CINQ AGENTS\nDÉLAI OPÉRATIONNEL : 15 MINUTES</div><p>Les informations du manuel ne suffisent pas seules. Chaque opérateur doit lire à voix haute les indications de son module.</p>`},
+ {title:'PROTOCOLE DE SÉCURITÉ',sub:'PRÉPARATION / INCIDENTS',html:`<p>Le coffre possède quatre verrous indépendants. Ils peuvent être résolus dans n’importe quel ordre et peuvent fonctionner simultanément.</p><ol><li>Attribuez le manuel au coordinateur (poste 1).</li><li>Attribuez les modules Câbles, Cadrans, Matrice et Fréquence aux postes 2 à 5.</li><li>Demandez à chaque opérateur la <b>configuration visible</b> avant de consulter la règle correspondante.</li><li>Validez chaque module <b>par manche</b>. Un module terminé s’allume en vert.</li></ol><p><b>Attention :</b> une mauvaise validation compte comme une erreur. Trois erreurs ou un chronomètre écoulé entraînent dix minutes de verrouillage collectif.</p>`},
+ {title:'CÂBLES DE SÉCURITÉ',sub:'ORDRE PRIORITAIRE — PARTIE A',html:`<p>Demandez : (1) le <b>dernier chiffre du numéro de série</b> et (2) les <b>six couleurs dans l’ordre</b>, de gauche à droite.</p><p>Appliquez la <b>première règle correspondante</b>, sans consulter les suivantes.</p><table class="paperTable"><tr><th>PRIORITÉ</th><th>CONDITION</th><th>MANIPULATION</th></tr><tr><td>01</td><td>Série paire ET au moins 2 rouges</td><td>Couper le dernier fil rouge</td></tr><tr><td>02</td><td>Au moins un jaune ET un bleu</td><td>Couper le premier fil bleu</td></tr><tr><td>03</td><td>Aucun jaune</td><td>Couper le deuxième fil</td></tr><tr><td>04</td><td>Tous les autres cas</td><td>Couper le dernier fil noir, sinon le sixième</td></tr></table>`},
+ {title:'CÂBLES — CAS PARTICULIERS',sub:'IDENTIFICATION VISUELLE',html:`<p>Les couleurs sont <b>Rouge, Bleu, Jaune, Noir, Vert, Blanc</b>. Plusieurs câbles peuvent avoir la même couleur.</p><div class="paperCode">Exemple : série = ...8\nCouleurs : ROUGE · ROUGE · BLEU · JAUNE · NOIR · VERT\nSérie paire et deux rouges → dernier ROUGE (fil 2)</div><p>Les câbles changent à chaque manche. Le coupe-câble doit être activé une seule fois <b>sur le fil retenu</b>. Les erreurs s’accumulent sur l’ensemble du coffre.</p>`},
+ {title:'CADRANS MÉCANIQUES',sub:'FORMULES DE VERROUILLAGE',html:`<p>Demandez les trois inscriptions visibles : <b>Référence contrat</b>, <b>Audits</b> et <b>Avis</b>, ainsi que la couleur du scellé.</p><table class="paperTable"><tr><th>CADRAN</th><th>VALEUR CIBLE</th></tr><tr><td>I · GAUCHE</td><td>Dernier chiffre du contrat</td></tr><tr><td>II · CENTRE</td><td>(Nombre d’audits + nombre d’avis) modulo 10</td></tr><tr><td>III · DROIT</td><td>(Gauche + Centre + bonus du scellé) modulo 10</td></tr></table><p><b>Bonus :</b> scellé AZUR = 1 ; scellé CARMIN = 3.</p><p>« Modulo 10 » signifie ne conserver que le dernier chiffre du résultat.</p>`},
+ {title:'CADRANS — CONTRÔLE',sub:'EXEMPLE NE REPRÉSENTANT PAS LE COFFRE ACTUEL',html:`<div class="paperCode">Contrat : C-1238, Audits : 4, Avis : 9, Scellé : AZUR\nGauche = 8\nCentre = (4+9) % 10 = 3\nDroit = (8+3+1) % 10 = 2</div><p>Avant de déclencher <b>VALIDER LES CADRANS</b>, faites confirmer chaque aiguille par l’opérateur. Un cadran peut être ajusté librement avec les boutons + et −.</p>`},
+ {title:'MATRICE LUMINEUSE',sub:'ATLAS DES MOTIFS — A',html:`<p>Demandez le nom du motif et l’angle de rotation affichés sur le module.</p><p><b>ÉCHELLE</b></p><div data-pattern="ÉCHELLE"></div><p><b>ARCHIVE</b></p><div data-pattern="ARCHIVE"></div><p>Une case sombre du diagramme est à allumer. Les cases claires doivent rester éteintes.</p>`},
+ {title:'MATRICE LUMINEUSE',sub:'ATLAS DES MOTIFS — B',html:`<p><b>SCEAU</b></p><div data-pattern="SCEAU"></div><p><b>CLEF</b></p><div data-pattern="CLEF"></div><p>Le nom du motif apparaît en haut du boîtier de l’opérateur. L’atlas ne change pas.</p>`},
+ {title:'MATRICE — ORIENTATION',sub:'ROTATION AVANT VALIDATION',html:`<p>Avant d’allumer les boutons, appliquez au motif imprimé la rotation indiquée sur le boîtier.</p><table class="paperTable"><tr><th>ROTATION</th><th>INTERPRÉTATION</th></tr><tr><td>0°</td><td>Reproduire le motif tel quel</td></tr><tr><td>90°</td><td>Un quart de tour horaire</td></tr><tr><td>180°</td><td>Un demi-tour</td></tr><tr><td>270°</td><td>Trois quarts de tour horaires</td></tr></table><p>Pour 90°, la case en <b>haut à gauche</b> du motif initial se retrouve <b>en haut à droite</b>. Les diagonales et les symétries doivent être conservées.</p>`},
+ {title:'RADIO — SYNCHRONISATION',sub:'CALCUL DES TROIS COMMANDES',html:`<p>Demandez : <b>Secteur, indice REF et numéro SERIE</b>.</p><table class="paperTable"><tr><th>SECTEUR</th><th>OFFSET</th></tr><tr><td>NORD</td><td>2</td></tr><tr><td>SUD</td><td>4</td></tr><tr><td>EST</td><td>6</td></tr><tr><td>OUEST</td><td>8</td></tr></table><p><b>FRÉQUENCE</b> = (REF + OFFSET) modulo 10.</p><p><b>PHASE</b> = (SERIE + 1) modulo 10 pour NORD ou EST ; (SERIE + 3) modulo 10 pour SUD ou OUEST.</p><p><b>GAIN</b> = (REF + SERIE + OFFSET) modulo 10.</p>`},
+ {title:'RADIO — OSCILLOSCOPE',sub:'LECTURE DES SIGNAUX',html:`<p>Le module affiche deux tracés : un <b>signal de référence ambre</b> et un <b>signal ajustable vert</b>. Les trois réglages doivent correspondre aux valeurs calculées avec la page précédente.</p><div class="paperCode">Exemple : Secteur NORD, REF = 4, SERIE = 7\nOFFSET = 2\nFRÉQUENCE = 6\nPHASE = 8\nGAIN = 3</div><p>Lorsque l’opérateur a ajusté les trois molettes, demandez-lui de cliquer sur <b>VERROUILLER LE SIGNAL</b>.</p>`},
+ {title:'OUVERTURE DES ARCHIVES',sub:'DÉCLARATION FINALE',html:`<p>Une fois les quatre modules terminés, le coffre est ouvert automatiquement. Les opérateurs et les spectateurs voient simultanément la validation de l’opération.</p><ol><li>Les câbles doivent indiquer <b>3 / 3</b>.</li><li>Les cadrans doivent indiquer <b>2 / 2</b>.</li><li>La matrice doit indiquer <b>2 / 2</b>.</li><li>Les fréquences doivent indiquer <b>2 / 2</b>.</li></ol><p>Les dossiers récupérés concernent une enquête fictive sur des marchés truqués, des sociétés écrans et des versements occultes. La vidéo finale sert d’élément narratif de révélation.</p><div class="paperCode">NE PAS DIFFUSER LE MANUEL AUX OPÉRATEURS\nFIN DU DOCUMENT — 12/12</div>`}
+];
+function manualCard(){
+ const page=MANUAL[manualPage],paper=create('div','coordinatorCard');
+ const head=create('div','paperHead');head.append(create('span','','CELLULE ANTICORRUPTION · DOCUMENT OMEGA'),create('span','redstamp','SECRET'));paper.append(head);
+ appendText(paper,'micro','PAGE DE PROCÉDURE · '+page.sub);paper.append(create('h4','',page.title));
+ const content=create('div');content.innerHTML=page.html;
+ content.querySelectorAll('[data-pattern]').forEach(elm=>{const name=elm.dataset.pattern;const g=create('div','manualGrid');PATTERNS[name].join('').split('').forEach(v=>g.append(create('span',v==='1'?'fill':'')));elm.append(g)});
+ paper.append(content);const footer=create('div','pageid');footer.append(create('span','','DIFFUSION STRICTEMENT LIMITÉE'),create('span','',String(manualPage+1).padStart(2,'0')+' / 12'));paper.append(footer);
+ const nav=create('div','paperNav');const p=action('← PAGE PRÉCÉDENTE',()=>{manualPage=Math.max(0,manualPage-1);render()},'mutedbtn'),n=action('PAGE SUIVANTE →',()=>{manualPage=Math.min(11,manualPage+1);render()},'mutedbtn');p.disabled=manualPage===0;n.disabled=manualPage===11;nav.append(p,create('span','smallStat','MANUEL · '+(manualPage+1)+'/12'),n);
+ const wrap=create('div');wrap.append(paper,nav);return wrap;
+}
+// --- Affichage de salle ---
+function setNode(el,text){if(el&&el.textContent!==text)el.textContent=text}
+function sectionHeader(target,kicker,title,description,badge){const head=create('div','gameHeader'),l=create('div');l.append(create('div','micro teal',kicker),create('h3','',title),create('p','',description));head.append(l);if(badge)head.append(create('span','panelbadge',badge));target.append(head)}
+function render(){
+ const s=room||initial(11),seat=activePosition(s),admin=isAdmin(),done=s.status==='completed',locked=s.status==='cooldown'&&s.unlockAt>Date.now();
+ setNode($('role'),seat<0?'SPECTATEUR':s.simulation&&admin?`TEST · AGENT ${seat+1}`:`AGENT ${seat+1}`);
+ setNode($('mode'),demo?'DÉMO LOCALE':'EN LIGNE');
+ $('adminTools').classList.toggle('hidden',!admin);$('login').classList.toggle('hidden',admin);$('logout').classList.toggle('hidden',!admin);
+ $('skip').disabled=!(admin&&s.simulation&&s.status==='active');
+ const progress=done?3:s.stage;setNode($('progressLabel'),progress+'/3 SECTEURS VALIDÉS');$('progressBar').style.width=(progress/3*100)+'%';
+ const titles=['Système d’accès','Réseau de virements','Coffre OMEGA'];
+ const stage=s.status==='waiting'?'RECRUTEMENT':s.status==='cooldown'?'SUSPENSION':done?'ARCHIVES OUVERTES':String(s.stage+1).padStart(2,'0')+' / 03 — '+STAGES[s.stage][0];
+ setNode($('phase'),stage);setNode($('title'),done?'Preuves sauvegardées':s.status==='waiting'?'Cinq enquêteurs requis':s.status==='cooldown'?'Accès temporairement suspendu':titles[s.stage]);
+ setNode($('desc'),done?'Les archives de l’enquête fictive sont accessibles.':s.status==='waiting'?'Les cinq postes doivent être occupés avant la première épreuve.':s.status==='cooldown'?'Une tentative a échoué. Le verrouillage est collectif.':STAGES[s.stage][1]);
+ $('stages').replaceChildren();STAGES.forEach(([name],i)=>{const item=create('div','step'+(done||s.stage>i?' done':s.stage===i&&s.status==='active'?' on':''));item.append(create('div','stepno',done||s.stage>i?'✓':String(i+1).padStart(2,'0')));const labels=create('div');labels.append(create('b','',name));labels.append(create('small','',done||s.stage>i?'VALIDÉ':s.stage===i&&s.status==='active'?'EN COURS':'VERROUILLÉ'));item.append(labels);$('stages').append(item)});
+ setNode($('headline'),done?'■ DOSSIER CLASSIFIÉ RÉCUPÉRÉ · VIDÉO DÉVERROUILLÉE':locked?'■ COOLDOWN COLLECTIF · '+remaining(s.unlockAt-Date.now()):s.status==='active'?'● TRANSMISSION EN DIRECT · SECTEUR '+(s.stage+1):'● RECHERCHE DE CINQ ENQUÊTEURS · '+(s.seats||[]).filter(Boolean).length+'/5');
+ const switches=$('agentSwitch');switches.replaceChildren();if(admin&&s.simulation){for(let i=0;i<5;i++){const names=['MANUEL','CÂBLES','CADRANS','MATRICE','RADIO'];switches.append(action(`${i+1} · ${names[i]}`,()=>{simulationSeat=i;manualPage=0;render()},'mutedbtn'+(simulationSeat===i?' active':'')))}}
+ $('seats').replaceChildren();const persons=Array.from({length:5},(_,i)=>(s.seats||[])[i]||null);for(let i=0;i<5;i++){const occupied=persons[i];const box=create('div','seat'+(seat===i?' mine':''));box.append(create('div','usericon'),create('strong','',i===0?'COORD.':`AGENT ${i+1}`),create('small','',occupied?(s.simulation?'SIMULÉ':seat===i?'VOUS':'CONNECTÉ'):'DISPONIBLE'));if(!occupied&&s.status==='waiting'&&!s.simulation&&user&&position(s)<0)box.append(action('REJOINDRE',()=>join(i),'mutedbtn'));$('seats').append(box)}
+ const g=$('game');g.replaceChildren();if(done){const card=create('div','card');sectionHeader(card,'OBJECTIF ATTEINT','Les archives ont été ouvertes','Les cinq agents ont terminé les trois épreuves et protégé les pièces du dossier.','OPÉRATION ACHEVÉE');const a=create('a','video','▶ DÉCOUVRIR LA VIDÉO');a.href=VIDEO;a.target='_blank';a.rel='noopener noreferrer';card.append(a);g.append(card);return}
+ if(s.status==='cooldown'){const card=create('div','card');sectionHeader(card,'SYSTÈME DE SÉCURITÉ','Verrouillage temporaire','La tentative précédente a été interrompue. Tous les joueurs attendent le même délai.','SUSPENSION');card.append(create('div','readout',locked?remaining(s.unlockAt-Date.now()):'00:00'));if(!locked)card.append(action('REPRENDRE APRÈS LE DÉLAI',rebootCooldown,'accentbtn'));g.append(card);return}
+ if(s.status==='waiting'){const card=create('div','card');sectionHeader(card,'SALLE D’ATTENTE','Recrutement des opérateurs','Rejoignez un poste libre. Les visiteurs supplémentaires suivent la partie en spectateur.','5 JOUEURS');if(position(s)>=0)card.append(action('QUITTER MON POSTE',leave));if(admin)card.append(create('p','fine','Pour tester seul : « SIMULER 5 AGENTS » dans le panneau de gauche.'));g.append(card);return}
+ if(s.stage===0)renderSimon(s,g,seat);
+ if(s.stage===1)renderPipes(s,g,seat);
+ if(s.stage===2)renderVault(s,g,seat);
+ syncDynamic();
+}
+function renderSimon(s,g,seat){
+ const card=create('div','card');sectionHeader(card,'01 / AUTHENTIFICATION BIOMÉTRIQUE','SIMON · ACCÈS MULTIPLE','Une séquence de 1 à 15 couleurs. Chaque agent ne peut actionner que sa propre touche. La vitesse augmente à chaque niveau. Après trois erreurs, retour au niveau 1.',`NIVEAU ${String(s.simon.level).padStart(2,'0')} / 15`);
+ const hw=create('div','hardware');const cols=create('div','flex');cols.style.justifyContent='space-between';cols.append(create('div','readout','ROUNDS '+String(s.simon.level).padStart(2,'0')),create('div','pill',`ERREURS ${s.simon.strikes} / 3`));hw.append(cols);
+ const pads=create('div','simonGrid');PAD_NAMES.forEach((name,i)=>{const pad=create('button','simonPad '+PAD_CSS[i]);pad.type='button';pad.dataset.pad=String(i);pad.append(create('span','light'),create('strong','',name));pad.disabled=!(canAct(s,i)&&!simonFlashing(s));pad.addEventListener('click',()=>pressSimon(i));pads.append(pad)});hw.append(pads);
+ const ctl=create('div','simonControls');const dots=create('div','simonDots');for(let i=0;i<s.simon.level;i++)dots.append(create('span',i<s.simon.index?'ok':''));ctl.append(dots,create('span','smallStat',simonFlashing(s)?'LECTURE…':'À VOUS DE JOUER'));hw.append(ctl);
+ const buttons=create('div','flex');if(seat>=0)buttons.append(action('REVOIR LA SÉQUENCE',replaySimon,'mutedbtn'));hw.append(buttons);
+ card.append(hw);g.append(card);
+}
+function segment(dir){return create('i','arm '+dir)}
+function renderPipes(s,g,seat){
+ const card=create('div','card');
+ sectionHeader(card,'02 / TRANSACTIONS OCCULTES','PIPE MANIA · CIRCUIT CLANDESTIN',
+  'Un réseau de 100 raccords cache le détournement de fonds. Les cinq enquêteurs gèrent chacun DEUX rangées. Reliez l’entrée aux trois sorties, sans laisser de raccord ouvert ou de tuyau isolé.','RÉSEAU À BRANCHES');
+ const hw=create('div','hardware');hw.append(create('div','hwlabel','NŒUD DE DISTRIBUTION · 10 × 10 · CONDUITES TÉLÉMÉTRIQUES'));
+ const network=pipeNetwork(s.seed,pipeRotations(s));
+ const endpoints=create('div','pipeEndpoints');
+ for(const port of PIPE_PORTS){
+  const lit=port.kind==='source'?true:network.outputs[PIPE_PORTS.filter(x=>x.kind==='exit').indexOf(port)];
+  const chip=create('div','pipeEndpoint'+(lit?' online':''));
+  chip.append(create('span','pipeEndpointLed'),create('span','',port.short+' · '+port.label));endpoints.append(chip);
+ }
+ hw.append(endpoints);
+ const wrap=create('div','pipesFrame'),grid=create('div','pipeGrid');
+ for(let i=0;i<PIPE_COUNT;i++){
+  const mask=network.mask[i],sector=Math.floor(i/(PIPE_SIDE*2));
+  const port=PIPE_PORTS.find(p=>p.index===i);
+  const tile=create('button','pipeTile'+(seat===sector?' own':'')+(network.visited.has(i)?' carrying':'')+(port?' terminal':''));
+  tile.type='button';tile.disabled=!canAct(s,sector);
+  tile.title=`Secteur ${sector+1} · ligne ${Math.floor(i/PIPE_SIDE)+1} · colonne ${i%PIPE_SIDE+1}`;
+  tile.append(create('span','bolt'));
+  for(const [bit,d] of [[1,'up'],[2,'right'],[4,'down'],[8,'left']])if(mask&bit)tile.append(segment(d));
+  tile.append(create('span','hub'));
+  if(port)tile.append(create('span','pipePortTag',port.short));
+  tile.addEventListener('click',()=>turnPipe(i));grid.append(tile);
+ }
+ wrap.append(grid);hw.append(wrap);
+ hw.append(create('p','pipeInstruction','Le flux bleu montre les tuyaux déjà reliés à la source. Un raccord qui se termine dans le vide empêche toute validation. Les pièces droites peuvent être tournées de 180° sans changer de fonction.'));
+ const legend=create('div','pipelabels');legend.append(create('span','','◀ ORIGINE · BUDGET PUBLIC'),create('span','','SORTIES A / B / C · FONDS DÉTOURNÉS ▶'));hw.append(legend);
+ card.append(hw);card.append(create('p','fine','Chaque joueur commande deux rangées. Le réseau change de disposition à chaque nouvelle partie ; il ne suffit plus de reproduire un ancien motif. Aucun compteur de tuyaux corrects.'));
+ g.append(card);
+}
+function renderVault(s,g,seat){
+ const v=s.vault||makeVault();const card=create('div','card');sectionHeader(card,'03 / PREUVES DE CORRUPTION','COFFRE OMEGA · ACCÈS RESTREINT','L’opérateur 1 consulte seul le manuel. Les opérateurs 2 à 5 manipulent les modules. Les erreurs et le compte à rebours sont partagés.','4 MODULES');
+ const top=create('div','vaultTop');const timer=create('div','timer');timer.id='vaultTimer';timer.textContent=remaining(v.startedAt+VAULT_TIME-Date.now());top.append(timer);const strikes=create('div','strikebar');strikes.append(create('span','micro amber','PÉNALITÉS'));for(let i=0;i<3;i++)strikes.append(create('span','strike'+(i<v.strikes?' on':'')));top.append(strikes);card.append(top);
+ const grid=create('div','vaultGrid');const main=create('div','modOnly'),aside=create('div','moduleList');const mods=[['CÂBLES',v.wires.round,3],['CADRANS',v.dials.round,2],['MATRICE',v.matrix.round,2],['FRÉQUENCES',v.radio.round,2]];
+ mods.forEach(([name,done,total],i)=>{const st=create('div','modStatus'+(done>=total?' done':''));st.append(create('div','number',done>=total?'✓':String(i+1).padStart(2,'0')));const text=create('div');text.append(create('strong','',name),create('br'),create('small','',done>=total?'VALIDÉ':`${done}/${total} ÉTAPES`));st.append(text);aside.append(st)});
+ if(seat===0){main.append(create('p','manualStatus','● POSTE 1 · ACCÈS AU MANUEL SEULEMENT. LES ÉCRANS DES OPÉRATEURS NE SONT PAS VISIBLES.'));main.append(manualCard())}
+ else if(seat>=1){const f=[renderWires,renderDials,renderMatrix,renderRadio][seat-1];main.append(f(s,true))}
+ else {main.append(create('p','manualStatus','● MODE SPECTATEUR · les instruments sont visibles mais verrouillés. Le manuel du coordinateur reste privé.'));const deck=create('div','moduleDeck');deck.append(renderWires(s,false),renderDials(s,false),renderMatrix(s,false),renderRadio(s,false));main.append(deck)}
+ grid.append(main,aside);card.append(grid);g.append(card);
+}
+function moduleBase(title,tag,done,total){const p=create('div','hardware');const head=create('div','moduleHeader');head.append(create('h4','',title),create('span','',`MOD. ${tag} / ${Math.min(done,total)}·${total}`));p.append(head);return p}
+function specs(p,labels){const div=create('div','specList');labels.forEach(([name,value])=>{const x=create('div','spec');x.append(create('small','',name),create('span','',String(value)));div.append(x)});p.append(div)}
+function renderWires(s,interact){const v=s.vault.wires,p=moduleBase('01 — FAISCEAU DE CÂBLES','A',v.round,3);if(v.round>=3){p.append(create('div','readout','✓ VERROU DÉSACTIVÉ'));return p}
+ const c=wireConfig(s);p.append(create('div','hwlabel','SECTION : CONTRATS FALSIFIÉS · QUEL FIL DÉCONNECTER ?'));specs(p,[['N° SÉRIE','K-'+String(500+c.serial)],['VOYANT',c.indicator],['MANCHES',`${v.round+1} / 3`]]);
+ const list=create('div','wires');c.colors.split('').forEach((color,i)=>{const line=create('div','wireLine');line.append(create('span','wireNo',String(i+1).padStart(2,'0')));const wire=create('div','wire '+color);wire.title=WIRE_NAMES[color];line.append(wire);const cut=action('✂',()=>cutWire(i),'mutedbtn');cut.disabled=!interact||!canAct(s,1);cut.setAttribute('aria-label',`Couper fil ${i+1}, ${WIRE_NAMES[color]}`);line.append(cut);list.append(line)});p.append(list);p.append(create('p','fine','Décrivez les six couleurs et le numéro de série au coordinateur avant de couper un fil.'));return p}
+function renderDials(s,interact){const v=s.vault.dials,p=moduleBase('02 — VERROU À CADRANS','B',v.round,2);if(v.round>=2){p.append(create('div','readout','✓ CADRANS VALIDÉS'));return p}
+ const c=dialConfig(s);p.append(create('div','hwlabel','VALIDATION DES MARCHÉS PUBLICS'));specs(p,[['CONTRAT',c.contract],['AUDITS / AVIS',c.audit+' / '+c.notice],['SCELLÉ',c.seal]]);
+ const row=create('div','knobRow');v.values.forEach((value,i)=>{const box=create('div','knobUnit');box.append(create('label','',['I · GAUCHE','II · CENTRE','III · DROITE'][i]));box.append(create('div','knobCircle',String(value)));const controls=create('div','knobButtons');for(const [symbol,d] of [['−',-1],['+',1]]){const b=action(symbol,()=>turnDial(i,d),'mutedbtn');b.disabled=!interact||!canAct(s,2);controls.append(b)}box.append(controls);row.append(box)});p.append(row);const submit=action('VALIDER LES CADRANS',validateDials,'accentbtn');submit.disabled=!interact||!canAct(s,2);const ctl=create('div','flex');ctl.style.marginTop='14px';ctl.append(submit);p.append(ctl);return p}
+function renderMatrix(s,interact){const v=s.vault.matrix,p=moduleBase('03 — GRILLE D’ARCHIVES','C',v.round,2);if(v.round>=2){p.append(create('div','readout','✓ MOTIF ACCEPTÉ'));return p}
+ const c=matConfig(s);p.append(create('div','hwlabel','RECONSTITUER LES SCELLÉS EFFACÉS'));specs(p,[['MOTIF',c.pattern],['ORIENTATION',c.turn+'°'],['REGISTRE',c.registry]]);const grid=create('div','matrixGrid');v.cells.forEach((on,i)=>{const b=create('button','matrixCell'+(on?' on':''));b.type='button';b.disabled=!interact||!canAct(s,3);b.setAttribute('aria-label',`Ligne ${Math.floor(i/4)+1} colonne ${i%4+1}: ${on?'allumé':'éteint'}`);b.onclick=()=>toggleCell(i);grid.append(b)});p.append(grid);const btn=action('VALIDER LA MATRICE',validateMatrix,'accentbtn');btn.disabled=!interact||!canAct(s,3);p.append(btn);return p}
+function wave(values,target=false){const [freq,phase,gain]=values,points=[];for(let x=0;x<=620;x+=5){const y=85-(Math.sin(x/620*(freq+1)*Math.PI*2+phase/10*Math.PI*2))*(10+gain*5);points.push(x+','+y.toFixed(1))}return `<polyline ${target?'class="target"':''} points="${points.join(' ')}"/>`}
+function renderRadio(s,interact){const v=s.vault.radio,p=moduleBase('04 — SYNCHRONISEUR RADIO','D',v.round,2);if(v.round>=2){p.append(create('div','readout','✓ SIGNAL STABILISÉ'));return p}
+ const c=radioConfig(s);p.append(create('div','hwlabel','INTERCEPTION DES ORDRES DE DISSIMULATION'));specs(p,[['SECTEUR',c.band],['REF / SÉRIE',c.ref+' / '+c.serial],['CANAL',c.channel]]);
+ const display=create('div');display.innerHTML=`<svg class="scope" viewBox="0 0 620 170" role="img" aria-label="Oscilloscope montrant deux ondes superposées"><g>${Array.from({length:9},(_,i)=>`<line x1="0" y1="${i*21}" x2="620" y2="${i*21}"/>`).join('')}${Array.from({length:16},(_,i)=>`<line x1="${i*41}" y1="0" x2="${i*41}" y2="170"/>`).join('')}</g>${wave(radioAnswer(c),true)}${wave(v.values)}<text x="12" y="16">C-07 / OSCILLOSCOPE / 90 Hz</text></svg>`;p.append(display);
+ const labels=['FRÉQUENCE','PHASE','GAIN'];const row=create('div','knobRow');v.values.forEach((value,i)=>{const box=create('div','knobUnit');box.append(create('label','',labels[i]));box.append(create('div','knobCircle',String(value)));const controls=create('div','knobButtons');for(const [symbol,d] of [['−',-1],['+',1]]){const b=action(symbol,()=>turnRadio(i,d),'mutedbtn');b.disabled=!interact||!canAct(s,4);controls.append(b)}box.append(controls);row.append(box)});p.append(row);const submit=action('VERROUILLER LE SIGNAL',validateRadio,'accentbtn');submit.disabled=!interact||!canAct(s,4);const ctl=create('div','flex');ctl.style.marginTop='14px';ctl.append(submit);p.append(ctl);return p}
+// --- Actions réseau (toutes les modifications sont des transactions atomiques). ---
+function strike(s){s.vault.strikes=(s.vault.strikes||0)+1;if(s.vault.strikes>=3)failed(s);return s}
+function advanceVault(s){if(completed(s.vault))s.status='completed';return s}
+function replaySimon(){update(s=>{if(s.status!=='active'||s.stage!==0||activePosition(s)<0)return;s.simon.index=0;s.simon.showAt=Date.now()+150;return s})}
+function pressSimon(color){update(s=>{if(s.status!=='active'||s.stage!==0||!canAct(s,color)||simonFlashing(s))return;const ss=s.simon,correct=simonSequence(s.seed)[ss.index];if(color!==correct){ss.strikes++;ss.index=0;if(ss.strikes>=3){ss.strikes=0;ss.level=1}ss.showAt=Date.now()+500;return s}ss.index++;if(ss.index>=ss.level){if(ss.level>=15)startStage(s,1);else{ss.level++;ss.index=0;ss.showAt=Date.now()+500}}return s})}
+function turnPipe(i){update(s=>{if(s.status!=='active'||s.stage!==1||i<0||i>=PIPE_COUNT||!canAct(s,Math.floor(i/(PIPE_SIDE*2))))return;if(!s.pipes||!Array.isArray(s.pipes.rot)||s.pipes.rot.length!==PIPE_COUNT)s.pipes={rot:pipeInitial(s.seed)};s.pipes.rot[i]=(s.pipes.rot[i]+1)%4;if(pipeNetwork(s.seed,s.pipes.rot).solved)startStage(s,2);return s})}
+function cutWire(i){let wrong=false;update(s=>{if(s.status!=='active'||s.stage!==2||!canAct(s,1)||s.vault.wires.round>=3||vaultExpired(s))return;if(i!==wireAnswer(wireConfig(s))){wrong=true;return strike(s)}s.vault.wires.round++;return advanceVault(s)}).then(ok=>{if(ok&&wrong)msg('Mauvais câble : pénalité enregistrée pour toute l’équipe.')})}
+function turnDial(i,delta){update(s=>{if(s.status!=='active'||s.stage!==2||!canAct(s,2)||s.vault.dials.round>=2||vaultExpired(s))return;s.vault.dials.values[i]=modulo(s.vault.dials.values[i]+delta,10);return s})}
+function validateDials(){let wrong=false;update(s=>{if(s.status!=='active'||s.stage!==2||!canAct(s,2)||s.vault.dials.round>=2||vaultExpired(s))return;const ok=JSON.stringify(s.vault.dials.values)===JSON.stringify(dialAnswer(dialConfig(s)));if(!ok){wrong=true;return strike(s)}s.vault.dials.round++;s.vault.dials.values=[0,0,0];return advanceVault(s)}).then(ok=>{if(ok&&wrong)msg('Combinaison incorrecte : une pénalité a été ajoutée.')})}
+function toggleCell(i){update(s=>{if(s.status!=='active'||s.stage!==2||!canAct(s,3)||s.vault.matrix.round>=2||vaultExpired(s))return;s.vault.matrix.cells[i]=s.vault.matrix.cells[i]?0:1;return s})}
+function validateMatrix(){let wrong=false;update(s=>{if(s.status!=='active'||s.stage!==2||!canAct(s,3)||s.vault.matrix.round>=2||vaultExpired(s))return;if(JSON.stringify(s.vault.matrix.cells)!==JSON.stringify(matAnswer(matConfig(s)))){wrong=true;return strike(s)}s.vault.matrix.round++;s.vault.matrix.cells=Array(16).fill(0);return advanceVault(s)}).then(ok=>{if(ok&&wrong)msg('Motif rejeté : une pénalité a été ajoutée.')})}
+function turnRadio(i,delta){update(s=>{if(s.status!=='active'||s.stage!==2||!canAct(s,4)||s.vault.radio.round>=2||vaultExpired(s))return;s.vault.radio.values[i]=modulo(s.vault.radio.values[i]+delta,10);return s})}
+function validateRadio(){let wrong=false;update(s=>{if(s.status!=='active'||s.stage!==2||!canAct(s,4)||s.vault.radio.round>=2||vaultExpired(s))return;if(JSON.stringify(s.vault.radio.values)!==JSON.stringify(radioAnswer(radioConfig(s)))){wrong=true;return strike(s)}s.vault.radio.round++;s.vault.radio.values=[0,0,0];return advanceVault(s)}).then(ok=>{if(ok&&wrong)msg('Signal hors calibration : pénalité enregistrée.')})}
+function syncDynamic(){if(!room)return;const s=room;
+ if(s.stage===0&&s.status==='active'){
+ const light=simonFlash(s),show=simonFlashing(s),seat=activePosition(s);
+ document.querySelectorAll('.simonPad').forEach(b=>{const n=Number(b.dataset.pad);b.classList.toggle('lit',light===n);b.disabled=!(seat===n&&!show&&canAct(s,n))});
+ const status=$('game')?.querySelector('.simonControls .smallStat');if(status)status.textContent=show?'TRANSMISSION LUMINEUSE…':'À VOUS DE JOUER';
+ }
+ const v=$('vaultTimer');if(v&&s.stage===2&&s.status==='active'){
+ const left=s.vault.startedAt+VAULT_TIME-Date.now();v.textContent=remaining(left);v.classList.toggle('urgent',left<60000);
+ }
+ if(s.status==='cooldown'){setNode($('headline'),s.unlockAt>Date.now()?'■ COOLDOWN COLLECTIF · '+remaining(s.unlockAt-Date.now()):'■ COOLDOWN TERMINÉ · RELANCE POSSIBLE');const r=$('game').querySelector('.readout');if(r)r.textContent=remaining(s.unlockAt-Date.now());}
+}
+let expiryCheck=false;
+function tick(){setNode($('clock'),nowFmt());syncDynamic();if(!room||demo||expiryCheck||room.status!=='active'||room.stage!==2||!vaultExpired(room))return;expiryCheck=true;update(s=>{if(s.status!=='active'||s.stage!==2||!vaultExpired(s))return;return failed(s)}).finally(()=>expiryCheck=false)}
+function initializeDemo(){demo=true;user={uid:'local-test-admin'};room=initial(13492);room.simulation=true;room.seats=Array.from({length:5},(_,i)=>({uid:'simulated-'+i}));room.status='active';startStage(room,0);setNode($('connect'),'MODE DÉMO · SANS FIREBASE');$('email').classList.add('hidden');$('password').classList.add('hidden');$('login').classList.add('hidden');$('logout').classList.add('hidden');msg('Mode démo indépendant : aucune modification sur la partie publique Firebase.');render()}
+function initializeFirebase(){
+ try{const fb=firebase.initializeApp(FIREBASE_CONFIG),a=firebase.auth(),database=firebase.database();auth=a;db=database;roomRef=database.ref('room');db.ref('.info/serverTimeOffset').on('value',snap=>clockOffset=snap.val()||0);
+ auth.onAuthStateChanged(async u=>{
+  if(!u){user=null;if(roomListener){roomRef.off('value');roomListener=false}try{await auth.signInAnonymously()}catch(err){setNode($('connect'),'AUTHENTIFICATION REFUSÉE');msg('Firebase : '+err.message)}return;}
+  user=u;setNode($('connect'),isAdmin()?'ADMIN CONNECTÉ':'LIAISON ACTIVE');if(roomListener)roomRef.off('value');
+  roomRef.on('value',snap=>{room=snap.val()||initial(13492);if(!Array.isArray(room.seats))room.seats=Array.from({length:5},(_,i)=>room.seats?.[i]||null);render()},err=>{setNode($('connect'),'ERREUR BASE');msg('Erreur lecture Realtime Database : '+err.message)});roomListener=true;
+ });
+ }catch(err){setNode($('connect'),'CONFIGURATION INVALIDE');msg('Échec initialisation Firebase : '+err.message)}
+}
+$('simulate').onclick=startSimulation;$('skip').onclick=skip;$('reset').onclick=reset;$('cooldown').onclick=testCooldown;
+$('login').onclick=async()=>{if(demo)return;const email=$('email').value.trim(),password=$('password').value;if(!email||!password){msg('Entre les identifiants de ton compte administrateur.');return}try{const c=await auth.signInWithEmailAndPassword(email,password);$('password').value='';if(c.user.uid!==ADMIN_UID){msg('Compte non administrateur.');await auth.signOut()}else msg('Connexion administrateur réussie.')}catch(e){msg('Connexion refusée : '+e.message)}};
+$('logout').onclick=()=>{if(!demo&&auth)auth.signOut()};
+if(new URLSearchParams(location.search).has('demo')||location.protocol==='file:'||typeof firebase==='undefined')initializeDemo();else initializeFirebase();
+setInterval(tick,100);
+</script>
+</body></html>
